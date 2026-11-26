@@ -13,7 +13,8 @@ a{color:inherit}
 /* nav */
 .nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
-.logo{display:flex;flex-direction:column;text-decoration:none;line-height:1}
+.logo{display:flex;align-items:center;text-decoration:none;line-height:1}
+.logo img{height:39px;width:auto;display:block}
 .logo b{font-weight:900;font-size:17px;letter-spacing:1px}
 .logo span{font:800 9.5px/1 'Poppins',sans-serif;letter-spacing:2.6px;color:var(--purple-d);margin-top:5px}
 .nav nav{display:flex;align-items:center;gap:22px}
@@ -21,7 +22,7 @@ a{color:inherit}
 .nav nav a:hover{color:var(--ink)}
 .btn-line{background:var(--purple);color:#fff!important;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px}
 .btn-line:hover{background:var(--purple-d)}
-@media(max-width:640px){.nav-in{height:58px}.nav nav a:not(.btn-line){display:none}.logo b{font-size:15px}}
+@media(max-width:640px){.nav-in{height:58px}.nav nav a:not(.btn-line){display:none}.logo img{height:32px}}
 
 /* case head */
 .chead{padding:40px 0 30px;border-bottom:1px solid var(--line)}
