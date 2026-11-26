@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg"><link rel="icon" type="image/png" href="./favicon.png"><link rel="apple-touch-icon" href="./favicon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>森巷手作烘焙｜薪鼎包裝 SENIOR DEED</title>
+<meta name="description" content="森巷手作烘焙｜公版套版客製・蛋糕禮盒｜薪鼎包裝 SENIOR DEED">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@200;300;400;500;700;900&family=Noto+Serif+TC:wght@400;500;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./case-engine.css">
+<link rel="stylesheet" href="./sd-shell.css">
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-in">
+    <a class="logo" href="./"><img src="./sd-logo-pack-horizontal.svg" alt="薪鼎包裝 SENIOR DEED" width="176" height="39"></a>
+    <nav>
+      <a class="cur" href="./">作品案例</a>
+      <a href="../">線上型錄</a>
+      <a href="https://www.shinding.com" target="_blank" rel="noopener">官方網站</a>
+      <a class="btn-line" href="#line">LINE 諮詢</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sd-case"><article class="cs">
+<header class="rl-head2 cs-io on">
+  <p class="rl-eb">SELECTED WORK</p>
+  <h1>森巷手作烘焙</h1>
+  <p class="rl-kind">公版套版客製・蛋糕禮盒</p>
+  <p class="rl-en">Senxiang Bakery — Custom Gift Box</p>
+  <div class="rl-meta2"><div><small>Client</small><b>森巷手作烘焙</b></div><div><small>Scope</small><b>公版套版客製・蛋糕禮盒</b></div><div><small>Agency</small><b>薪鼎包裝 Senior Deed</b></div></div>
+</header>
+<figure class="rl-hero"><img class="rl-pg" src="./old/senxiang/01.webp?v=261127c" alt="森巷手作烘焙 01" loading="eager"></figure>
+<section class="rl-reel">
+  <img class="rl-pg" src="./old/senxiang/02.webp?v=261127c" alt="森巷手作烘焙 02" loading="lazy" decoding="async">
+  <img class="rl-pg" src="./old/senxiang/03.webp?v=261127c" alt="森巷手作烘焙 03" loading="lazy" decoding="async">
+  <img class="rl-pg" src="./old/senxiang/04.webp?v=261127c" alt="森巷手作烘焙 04" loading="lazy" decoding="async">
+  <img class="rl-pg" src="./old/senxiang/05.webp?v=261127c" alt="森巷手作烘焙 05" loading="lazy" decoding="async">
+</section>
+<div class="rl-end"><a href="./"><i>←</i>回到全部作品</a></div>
+</article></main>
+
+<section class="cta" id="line">
+  <div class="container">
+    <h2>想做你自己的客製包裝？</h2>
+    <p>紙盒、塑膠、禮盒、提袋——不分材質，由薪鼎為你規劃設計到量產。</p>
+    <a href="#line">加入官方 LINE 諮詢</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container fin">
+    <div><b>薪鼎企業有限公司<i>SENIOR DEED</i></b>彰化縣大村鄉中山路三段 2 巷 412 號｜TEL 04-853-2559</div>
+    <div>作品著作權屬各品牌與薪鼎所有，未經同意請勿轉用。</div>
+  </div>
+</footer>
+<script>
+(function(){
+  var r=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.rl-reel > .rl-pg');
+  if(r){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
