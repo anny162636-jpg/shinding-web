@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>薪鼎包裝｜客製作品案例</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--purple:#924898;--purple-d:#7a3b80;--plastic:#083B74;--teal:#12A19A;--teal-d:#0E837D;--ink:#231F20;--deep:#3f2147;--mute:#6b6760;--line:#ece8e1;--bg:#F4F2EE}
+  *{box-sizing:border-box}html,body{margin:0}
+  body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;background:#fff;min-height:100vh}
+
+  /* top works marquee */
+  .marquee{position:relative;overflow:hidden;padding:20px 0 22px;background:linear-gradient(180deg,#F5EEFA,#FFFFFF);
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .track{display:flex;gap:14px;width:max-content;animation:scrollx 72s linear infinite;will-change:transform}
+  .track.rev{animation-direction:reverse;animation-duration:88s;margin-top:14px}
+  .marquee:hover .track{animation-play-state:paused}
+  @keyframes scrollx{to{transform:translateX(-50%)}}
+  .mqi{width:148px;height:148px;border-radius:13px;overflow:hidden;flex:none;box-shadow:0 6px 16px rgba(60,33,71,.10);background:#efe9f3}
+  .mqi img{width:100%;height:100%;object-fit:cover;display:block}
+  @media(max-width:560px){.mqi{width:116px;height:116px}}
+
+  header{padding:34px 26px 24px;border-bottom:1px solid var(--line)}
+  header .brand{font:800 11px/1 'Poppins',sans-serif;letter-spacing:3px;color:var(--teal-d);text-transform:uppercase}
+  header h1{margin:12px 0 0;font-weight:900;font-size:34px;letter-spacing:2px;color:var(--deep)}
+  header p{margin:9px 0 0;font-size:14px;color:var(--mute)}
+
+  .tabs{display:flex;gap:10px;padding:18px 26px 4px;flex-wrap:wrap;position:sticky;top:0;z-index:6;background:rgba(255,255,255,.92);backdrop-filter:blur(8px)}
+  .tab{border:1.5px solid #e4dcea;background:#fff;color:var(--mute);cursor:pointer;font-family:inherit;font-weight:700;font-size:15px;padding:10px 20px;border-radius:999px;transition:.15s;display:flex;align-items:center;gap:8px}
+  .tab .n{font:700 12px/1 'Poppins',sans-serif;background:#f0eaf3;color:#9a7aa5;padding:3px 8px;border-radius:999px}
+  .tab[aria-selected="true"]{background:var(--purple);border-color:var(--purple);color:#fff}
+  .tab[aria-selected="true"] .n{background:rgba(255,255,255,.22);color:#fff}
+
+  main{padding:20px 26px 10px}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media(max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:680px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+
+  /* square card, hover reveals content (SHINE.IN style) */
+  .card{position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;display:block;text-decoration:none;color:#fff;
+        background:#eee;box-shadow:0 8px 20px rgba(40,25,60,.06);transition:transform .2s ease,box-shadow .2s ease}
+  .card:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(60,33,71,.16)}
+  .card .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  .card .ph svg{width:40px;height:40px;opacity:.5}
+  .v1{background:linear-gradient(135deg,#ECDAF3,#DCE5F7)}.v2{background:linear-gradient(140deg,#DCE5F7,#D6EDEA)}.v3{background:linear-gradient(135deg,#F4E4ED,#E0E6F6)}.v4{background:linear-gradient(150deg,#E9DEF2,#D4E9E6)}
+  .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .card:hover img{transform:scale(1.05)}
+  /* always-on bottom name, hover shows full */
+  .meta{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;opacity:0;transition:opacity .28s ease;
+        background:linear-gradient(to top,rgba(30,16,36,.9) 0%,rgba(30,16,36,.5) 52%,rgba(30,16,36,.08) 100%)}
+  .card:hover .meta{opacity:1}
+  .meta .nm{font-weight:900;font-size:18px;line-height:1.22;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+  .meta .nm .en{display:block;font:600 10px/1.3 'Poppins',sans-serif;letter-spacing:.5px;color:#d9c4e3;margin-top:4px}
+  .meta .items{font-size:12px;color:#ecdff2;line-height:1.55;margin-top:9px}
+  @media(hover:none){.meta{opacity:1}}
+
+  .reveal{opacity:0;transform:translateY(16px)}
+  .reveal.in{opacity:1;transform:none;transition:opacity .5s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1)}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.card:hover{transform:none}.card:hover img{transform:none}.track{animation:none}}
+
+  .empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:70px 24px;line-height:1.9}
+  .empty b{display:block;color:var(--ink);font-size:19px;margin-bottom:8px}
+  .empty svg{width:52px;height:52px;opacity:.4;margin-bottom:14px}
+
+  .cta{margin:26px 26px 0;border-radius:18px;background:var(--plastic);color:#fff;padding:30px 28px;text-align:center}
+  .cta h2{margin:0;font-weight:900;font-size:21px;letter-spacing:1px}
+  .cta p{margin:8px 0 18px;font-size:14px;color:#cbd7e6}
+  .cta a{display:inline-block;background:var(--purple);color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 26px;border-radius:999px}
+  footer{padding:24px;color:var(--mute);font-size:12.5px;line-height:1.7;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="marquee" aria-hidden="true">
+    <div class="track" id="mq1"></div>
+    <div class="track rev" id="mq2"></div>
+  </div>
+  <header>
+    <div class="brand">Senior Deed · 薪鼎包裝</div>
+    <h1>客製包裝作品案例</h1>
+    <p>設計到量產，一手整合。（頂部版面之後再設計）</p>
+  </header>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" data-tag="all" aria-selected="true">全部 <span class="n" id="n-all">0</span></button>
+    <button class="tab" role="tab" data-tag="brand" aria-selected="false">品牌設計包裝 <span class="n" id="n-brand">0</span></button>
+    <button class="tab" role="tab" data-tag="stock" aria-selected="false">公版套版客製 <span class="n" id="n-stock">0</span></button>
+  </div>
+  <main><div class="grid" id="grid"></div></main>
+  <div class="cta">
+    <h2>想做你自己的客製包裝？</h2>
+    <p>紙盒、塑膠、禮盒、提袋——不分材質，由薪鼎為你規劃設計到量產。</p>
+    <a href="#line">加入官方 LINE 諮詢</a>
+  </div>
+  <footer>薪鼎企業有限公司　SENIOR DEED<br>作品著作權屬各品牌與薪鼎所有，未經同意請勿轉用。</footer>
+</div>
+<script>
+const B="https://www.shineintw.com/assets/img/cases/";
+const CASES=[
+{cat:"brand",slug:"mijiou",nm:"MIJIOU 咪玖",en:"MIJIOU",yr:"2022–2025",items:"品牌識別・禮盒封套・提袋腰封・酥餅盒・宅配箱・新年禮盒",cover:B+"mijiou/mij-cny25-gw.webp"},
+{cat:"brand",slug:"yuyou",nm:"魚有王",en:"TUNA KING",yr:"2023–2025",items:"星空上掀禮盒・吉祥物禮盒系列・單入提盒・品牌提袋",cover:B+"yuyou/yuyou-t-z08.webp"},
+{cat:"brand",slug:"wumi",nm:"五麋人",en:"WOO CHARMING",yr:"2023",items:"中秋禮盒・極光禮盒・吉祥物外帶盒・提袋",cover:B+"wumi/wm-c07b.webp"},
+{cat:"brand",slug:"bd",nm:"寶達香",en:"PAO DA SHIANG",yr:"2022",items:"傳承禮盒・花開質清禮盒・提袋・瓜子立袋",cover:B+"bd/bd-24a-gw.webp"},
+{cat:"brand",slug:"yg",nm:"鶯格格",en:"YING GE GE",yr:"2024",items:"青花/花卉/深藍款禮盒・提袋・夾鏈立袋",cover:B+"yg/yg-p06c-gw.webp"},
+{cat:"brand",slug:"congge",nm:"聰哥團長蛋黃酥",en:"CONG GE",yr:"2022",items:"蛋黃酥禮盒・花卉款禮盒・手提禮盒・提袋",cover:B+"congge/cg-hero2-gw.webp"},
+{cat:"brand",slug:"zhong",nm:"鍾師父",en:"MASTER CHUNG",yr:"2024",items:"牛軋糖提把禮盒・三入抽屜禮盒・牡丹三入禮盒",cover:B+"zhong/zhong-14-gw.webp"},
+{cat:"brand",slug:"xiong",nm:"雄二家",en:"FUTATSUKUMAYA",yr:"2023",items:"蛋黃酥長盒・雙掀提盒三款",cover:B+"xiong/xiong-14-gw.webp"},
+{cat:"brand",slug:"mimi",nm:"覓蜜甜點",en:"DULCE CAKE",yr:"2025",items:"甜點方形禮盒・四款禮盒系列・品牌提袋",cover:B+"mimi/mimi-01-gpt-gw.webp"},
+{cat:"brand",slug:"lw",nm:"樂玟甜品",en:"LE WEN",yr:"2024",items:"甜點禮盒五款・點心包裝袋・品牌 DM",cover:B+"lw/lw-t-a.webp"},
+{cat:"brand",slug:"scone",nm:"尷尬司康",en:"EMBARRASSING SCONE",yr:"2024",items:"六入司康禮盒・手提緞帶飛機盒",cover:B+"scone/gg-06b-gw.webp"},
+{cat:"brand",slug:"alfredo",nm:"Alfredo 榴槤巧克力",en:"ALFREDO",yr:"2023",items:"榴槤巧克力禮盒・小盒・單顆包裝",cover:B+"alfredo/al-t-04.webp"},
+{cat:"brand",slug:"bibi",nm:"比比炸雞",en:"BIBI CHICKEN",yr:"2023",items:"炸雞平放盒・手提盒・韓式炸雞包裝・盒型結構",cover:B+"bibi/bb-6-gw.webp"},
+{cat:"brand",slug:"lj",nm:"老井極上燒肉",en:"GOKUJO YAKINIKU",yr:"2023",items:"燒肉禮盒組・品牌提袋・包裝結構設計",cover:B+"lj/lj-t-gift.webp"},
+{cat:"brand",slug:"dx",nm:"東興市魯肉義",en:"DONG XING",yr:"2023–2024",items:"經典魯肉冷凍盒・小魚乾玻璃罐・紙箱貼紙",cover:B+"dx/dx-02-wall.webp"},
+{cat:"brand",slug:"pj",nm:"啵啵香酸菜魚",en:"UBONA × LAOJING",yr:"2024",items:"酸菜魚盒・品牌提袋・聯名包裝",cover:B+"pj/pj-1-gw.webp"},
+{cat:"brand",slug:"ubona",nm:"UBona 啵啵香",en:"UBONA",yr:"2025",items:"麻辣臭豆腐盒・鴨血盒・外盒・提袋",cover:B+"ubona/ub-06-gw.webp"},
+{cat:"brand",slug:"zhiyue",nm:"指月亭",en:"SHIGETSUTEI",yr:"2023",items:"辣椒醬雙入禮盒・味噌辣椒醬罐禮盒・提袋・宅配箱",cover:B+"zhiyue/zhiyue-16-gw.webp"},
+{cat:"brand",slug:"noodle",nm:"丞喜食品 × 製麵先生",en:"NOODLE CHEN",yr:"2022",items:"麵條盒裝系列・包裝袋・出貨紙箱",cover:B+"noodle/noodle-12-gw.webp"},
+{cat:"brand",slug:"sochill",nm:"敘丘食品",en:"SOCHILL",yr:"2022",items:"果茶夾鏈袋・包裝系統",cover:B+"sochill/so-00g.webp"},
+{cat:"brand",slug:"berry",nm:"不能莓有妳",en:"STRAWBERRY FARM",yr:"2023",items:"草莓手提盒・提袋・果醬罐・果汁瓶",cover:B+"berry/bf-bag-gw.webp"},
+{cat:"brand",slug:"hs",nm:"紅山農產",en:"MOUNTAIN JAMBU",yr:"2022",items:"3 斤/5 斤/10 斤提把禮盒",cover:B+"hs/hs-20-gpt-wl.webp"},
+{cat:"brand",slug:"pine",nm:"鳳梨大亨",en:"PINEAPPLE TYCOON",yr:"2022",items:"果乾夾鏈袋・果醬罐吊牌・牛皮紙箱",cover:B+"pine/pine-box03-wall.webp"},
+{cat:"brand",slug:"lee",nm:"李的綠意花園",en:"LEE'S GREEN GARDEN",yr:"2024",items:"帆布提袋・植栽提袋・培養土袋・品牌貼紙",cover:B+"lee/lee-14-f2.webp"},
+{cat:"brand",slug:"fulcon",nm:"富爾康",en:"FULCON",yr:"2024",items:"護膝包裝盒・護腰包裝盒・護具包裝設計",cover:B+"fulcon/fulcon-p05-gw.webp"}
+];
+const bi='<svg viewBox="0 0 24 24" fill="none" stroke="#3f2147" stroke-width="1.4" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>';
+const grid=document.getElementById('grid');
+(function(){
+  const covers=CASES.filter(c=>c.cover).map(c=>c.cover);
+  const mk=arr=>arr.concat(arr).map(u=>'<div class="mqi"><img src="'+u+'" alt="" loading="lazy" onerror="this.closest(\'.mqi\').style.display=\'none\'"></div>').join('');
+  document.getElementById('mq1').innerHTML=mk(covers);
+  document.getElementById('mq2').innerHTML=mk(covers.slice().reverse());
+})();
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const io=reduce?null:new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.05,rootMargin:'0px 0px -24px 0px'});
+function card(c,i){
+  const v='v'+((i%4)+1);
+  const img=c.cover?'<img src="'+c.cover+'" alt="'+c.nm+' 包裝作品" loading="lazy" onerror="this.style.display=\'none\'">':'';
+  const items=c.items?'<span class="items">'+c.items+'</span>':'';
+  return '<a class="card reveal '+v+'" href="#'+c.slug+'"><span class="ph">'+bi+'</span>'+img
+    +'<span class="meta">'
+    +'<span class="nm">'+c.nm+(c.en?'<span class="en">'+c.en+'</span>':'')+'</span>'+items+'</span></a>';
+}
+function observe(){const els=grid.querySelectorAll('.reveal:not(.in)');if(reduce){els.forEach(e=>e.classList.add('in'));return;}els.forEach((el,i)=>{el.style.transitionDelay=Math.min(i*35,300)+'ms';io.observe(el);});}
+/* 一個案例可同時掛多個標籤（例：同案既有公版盒型、也有新開盒型），
+   會同時出現在兩個篩選下，但永遠是同一張卡、不拆開。 */
+const tagsOf=c=>c.tags||[c.cat];
+function render(tag){
+  const arr=(tag==='all')?CASES.slice():CASES.filter(c=>tagsOf(c).includes(tag));
+  if(!arr.length){grid.innerHTML='<div class="empty">'+bi+'<b>這個分類的案例整理中</b>公版套版客製的實績即將補上，敬請期待。</div>';return;}
+  grid.innerHTML=arr.map(card).join('');observe();
+}
+document.getElementById('n-all').textContent=CASES.length;
+document.getElementById('n-brand').textContent=CASES.filter(c=>tagsOf(c).includes('brand')).length;
+document.getElementById('n-stock').textContent=CASES.filter(c=>tagsOf(c).includes('stock')).length;
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected','false'));
+  t.setAttribute('aria-selected','true');render(t.dataset.tag);
+}));
+render('all');
+</script>
+</body>
+</html>
