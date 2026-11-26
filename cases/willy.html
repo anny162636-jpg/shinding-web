@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>威利與查理｜薪鼎包裝 SENIOR DEED</title>
+<meta name="description" content="威利與查理 包裝案例｜薪鼎包裝 SENIOR DEED">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./sd-shell.css">
+<style>
+  .ohead{padding:48px 0 34px;text-align:center}
+  .ohead .eb{font:800 11px/1 'Poppins',sans-serif;letter-spacing:3.4px;color:var(--purple-d);text-transform:uppercase}
+  .ohead h1{margin:16px 0 0;font-weight:900;font-size:clamp(26px,4vw,40px);letter-spacing:2px}
+  .ohead .kind{margin:12px 0 0;font-size:14.5px;color:var(--mute)}
+  .ohead .ln{width:46px;height:3px;background:var(--purple);border-radius:3px;margin:22px auto 0}
+  .oreel{padding:10px 0 50px}
+  .oreel img{width:100%;height:auto;display:block;margin:0 auto 14px;border-radius:6px;background:#f3f1ee;
+        opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+  .oreel img.in{opacity:1;transform:none}
+  .oback{display:inline-block;font-size:13.5px;font-weight:700;color:var(--mute);text-decoration:none;margin:0 0 6px}
+  .oback:hover{color:var(--purple)}
+  .onote{text-align:center;color:var(--mute);font-size:13px;line-height:1.9;padding:0 0 10px}
+  @media(prefers-reduced-motion:reduce){.oreel img{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-in">
+    <a class="logo" href="./"><img src="./sd-logo-pack-horizontal.svg" alt="薪鼎包裝 SENIOR DEED" width="176" height="39"></a>
+    <nav>
+      <a class="cur" href="./">作品案例</a>
+      <a href="../">線上型錄</a>
+      <a href="https://www.shinding.com" target="_blank" rel="noopener">官方網站</a>
+      <a class="btn-line" href="#line">LINE 諮詢</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container" style="padding-top:18px"><a class="oback" href="./">← 回作品案例</a></div>
+
+<header class="ohead"><div class="container">
+  <p class="eb">Selected Work</p>
+  <h1>威利與查理</h1>
+  
+  <div class="ln"></div>
+</div></header>
+
+<section class="oreel"><div class="container">
+  <img src="./old/willy/01.webp" alt="威利與查理 案例 01" loading="eager" decoding="async">
+  <img src="./old/willy/02.webp" alt="威利與查理 案例 02" loading="lazy" decoding="async">
+  <img src="./old/willy/03.webp" alt="威利與查理 案例 03" loading="lazy" decoding="async">
+  <img src="./old/willy/04.webp" alt="威利與查理 案例 04" loading="lazy" decoding="async">
+  <img src="./old/willy/05.webp" alt="威利與查理 案例 05" loading="lazy" decoding="async">
+</div></section>
+
+<section class="cta" id="line">
+  <div class="container">
+    <h2>想做你自己的客製包裝？</h2>
+    <p>紙盒、塑膠、禮盒、提袋——不分材質，由薪鼎為你規劃設計到量產。</p>
+    <a href="#line">加入官方 LINE 諮詢</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container fin">
+    <div><b>薪鼎企業有限公司<i>SENIOR DEED</i></b>彰化縣大村鄉中山路三段 2 巷 412 號｜TEL 04-853-2559</div>
+    <div>作品著作權屬各品牌與薪鼎所有，未經同意請勿轉用。</div>
+  </div>
+</footer>
+<script>
+(function(){
+  var r=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.oreel img');
+  if(r){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.05,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
