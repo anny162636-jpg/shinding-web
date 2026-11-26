@@ -1,0 +1,46 @@
+:root{
+  --purple:#924898;--purple-d:#7a3b80;--teal-d:#0E837D;
+  --ink:#231F20;--mute:#6b6760;--line:#e8e5e0;--maxw:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Noto Sans TC',sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+@media(max-width:560px){.container{padding:0 16px}}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
+.logo{display:flex;align-items:center;text-decoration:none;line-height:1}
+.logo img{height:39px;width:auto;display:block}
+.logo b{font-weight:900;font-size:17px;letter-spacing:1px}
+.logo span{font:800 9.5px/1 'Poppins',sans-serif;letter-spacing:2.6px;color:var(--purple-d);margin-top:5px}
+.nav nav{display:flex;align-items:center;gap:22px}
+.nav nav a{text-decoration:none;font-size:14.5px;font-weight:500;color:var(--mute);transition:color .15s}
+.nav nav a:hover{color:var(--ink)}
+.btn-line{background:var(--purple);color:#fff!important;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px}
+.btn-line:hover{background:var(--purple-d)}
+@media(max-width:640px){.nav-in{height:58px}.nav nav a:not(.btn-line){display:none}.logo img{height:32px}}
+
+/* cta + footer */
+.cta{margin-top:10px;background:linear-gradient(130deg,#4A1F52 0%,#7A3B80 48%,#A3569E 100%);color:#fff;padding:52px 0;text-align:center}
+.cta h2{margin:0;font-weight:900;font-size:clamp(20px,3vw,26px);letter-spacing:1px}
+.cta p{margin:10px 0 22px;font-size:14.5px;color:#e6d6ea}
+.cta a{display:inline-block;background:#fff;color:#5E2766;text-decoration:none;font-weight:800;font-size:15px;padding:13px 30px;border-radius:999px;transition:transform .15s}
+.cta a:hover{transform:translateY(-2px)}
+footer{background:#f4f2f0;color:#6b6760;padding:34px 0;font-size:13px;line-height:1.8;border-top:1px solid var(--line)}
+footer .fin{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer b{color:var(--ink);font-weight:700;display:block;margin-bottom:6px}
+footer b i{font:800 10px/1 'Poppins',sans-serif;font-style:normal;letter-spacing:2.4px;color:var(--purple-d);margin-left:9px;
+      padding-left:10px;border-left:1px solid #d6d0cb}
+footer a{color:var(--purple-d);text-decoration:none}footer a:hover{text-decoration:underline}
+
+
+/* ---- 原版版型引擎（case-engine.css）在薪鼎殼裡的微調 ---- */
+.sd-case{padding-top:0}
+.sd-case .cs{--maxw:1200px}
+.sd-case .rl-end a,.sd-case .cs-next .txt-link{color:var(--purple-d)}
+.sd-case .rl-eb,.sd-case .cs-eb2{color:var(--purple-d)}
+.cta{margin-top:0}
