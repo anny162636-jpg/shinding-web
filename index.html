@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+<title>薪鼎包裝｜線上型錄</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+<script src="pageflip.js"></script>
+<style>
+  :root{--purple:#924898;--blue:#1E4D81;--plastic:#083B74;--teal-d:#0E837D;--ink:#231F20;--mute:#6b6760;--line:#e9e4ec}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;height:100%}
+  body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);background:#efe9f2;overflow:hidden}
+  #app{display:flex;flex-direction:column;height:100dvh}
+
+  .bar{display:flex;align-items:center;gap:12px;padding:10px 14px;background:#fff;border-bottom:1px solid var(--line);z-index:20}
+  .menu-btn{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:none;border-radius:12px;background:#f3eef7;cursor:pointer}
+  .menu-btn span,.menu-btn span::before,.menu-btn span::after{content:"";display:block;width:18px;height:2px;background:var(--purple);border-radius:2px;position:relative}
+  .menu-btn span::before{position:absolute;top:-6px}.menu-btn span::after{position:absolute;top:6px}
+  .brand{font-weight:900;font-size:16px;letter-spacing:.5px}
+  .brand small{display:block;font:600 10px/1 'Poppins';letter-spacing:2px;color:var(--purple);margin-top:3px}
+  .counter{margin-left:auto;font:700 13px/1 'Poppins';color:var(--mute);background:#f3eef7;padding:8px 12px;border-radius:999px}
+
+  .stage{flex:1;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:14px;
+    background:linear-gradient(160deg,#ECDAF3 0%,#F4E4ED 45%,#DCE5F7 100%)}
+  .book-wrap{width:min(96vw,1040px);display:flex;align-items:center;justify-content:center}
+  #book{margin:0 auto}
+  #book .page{background:#fff;overflow:hidden}
+  #book .page img{width:100%;height:100%;display:block;object-fit:fill}
+
+  .zoom-btn{position:absolute;right:14px;bottom:14px;z-index:15;display:flex;align-items:center;gap:7px;
+    background:#fff;color:var(--purple);border:none;border-radius:999px;padding:11px 16px;font-weight:700;font-size:14px;
+    box-shadow:0 6px 18px rgba(60,30,80,.22);cursor:pointer}
+  .zoom-btn svg{width:18px;height:18px;fill:none;stroke:var(--purple);stroke-width:2.2}
+  .hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:12px;color:#6a5a72;background:rgba(255,255,255,.72);padding:5px 12px;border-radius:999px;pointer-events:none;transition:opacity .4s}
+
+  .foot{display:flex;align-items:center;gap:12px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);z-index:20}
+  .nav{width:44px;height:44px;border:none;border-radius:50%;background:var(--purple);color:#fff;font-size:20px;cursor:pointer;flex:none}
+  .nav:disabled{background:#d8cfe0}.nav.blue{background:var(--blue)}
+  input[type=range]{flex:1;accent-color:var(--purple);height:6px}
+
+  .scrim{position:fixed;inset:0;background:rgba(30,15,40,.42);opacity:0;pointer-events:none;transition:.25s;z-index:30}
+  .scrim.open{opacity:1;pointer-events:auto}
+  .toc{position:fixed;top:0;left:0;bottom:0;width:min(82vw,330px);background:#fff;transform:translateX(-100%);transition:transform .28s ease;z-index:31;display:flex;flex-direction:column}
+  .toc.open{transform:none}
+  .toc-head{padding:22px 20px 16px;background:linear-gradient(135deg,#ECDAF3,#F4E4ED 55%,#DCE5F7)}
+  .toc-head b{font-size:20px;font-weight:900;color:#3f2147}
+  .toc-head .en{font:800 10px/1 'Poppins';letter-spacing:2px;color:#8a4e91;margin-bottom:8px}
+  .toc-list{overflow:auto;padding:8px 0 24px;flex:1}
+  .toc-list button{display:flex;width:100%;align-items:center;gap:10px;border:none;background:none;text-align:left;padding:11px 20px;font-size:15px;color:var(--ink);cursor:pointer}
+  .toc-list button:hover{background:#f6f1fa}
+  .toc-list button.sec{font-weight:900;margin-top:6px}
+  .toc-list button.sub{padding-left:30px;color:#4a4450;font-size:14px}
+  .toc-list .pg{margin-left:auto;font:700 12px/1 'Poppins';color:var(--mute)}
+  .toc-list .dot{width:9px;height:9px;border-radius:50%;flex:none}
+  .sec.plastic .dot{background:var(--plastic)}.sec.paper .dot{background:var(--teal-d)}.sec.cust .dot{background:var(--purple)}
+
+  /* 放大檢視 */
+  .lb{position:fixed;inset:0;background:#15101c;z-index:50;display:none;touch-action:none;overflow:hidden}
+  .lb.open{display:block}
+  .lb img{position:absolute;top:50%;left:50%;max-width:none;transform-origin:center center;will-change:transform;user-select:none;-webkit-user-drag:none}
+  .lb-close{position:absolute;top:12px;right:12px;z-index:2;width:46px;height:46px;border:none;border-radius:50%;background:rgba(255,255,255,.92);color:#231F20;font-size:24px;cursor:pointer}
+  .lb-tip{position:absolute;top:16px;left:50%;transform:translateX(-50%);z-index:2;color:#fff;font-size:13px;background:rgba(0,0,0,.4);padding:6px 14px;border-radius:999px;transition:opacity .5s}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="bar">
+    <button class="menu-btn" id="openToc" aria-label="目錄"><span></span></button>
+    <div class="brand">線上型錄<small>SENIOR DEED</small></div>
+    <div class="counter"><span id="pnum">1</span> / 84</div>
+  </div>
+
+  <div class="stage">
+    <div class="book-wrap"><div id="book"></div></div>
+    <div class="hint" id="hint">翻頁：點兩側、左右滑或拖頁角</div>
+    <button class="zoom-btn" id="zoomBtn" aria-label="放大本頁">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16" y1="16" x2="21" y2="21"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>放大
+    </button>
+  </div>
+
+  <div class="foot">
+    <button class="nav" id="prev" aria-label="上一頁">‹</button>
+    <input type="range" id="slider" min="1" max="84" value="1" aria-label="頁數">
+    <button class="nav blue" id="next" aria-label="下一頁">›</button>
+  </div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<nav class="toc" id="toc" aria-label="目錄">
+  <div class="toc-head"><div class="en">CONTENTS</div><b>目錄索引</b></div>
+  <div class="toc-list" id="tocList"></div>
+</nav>
+
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose" aria-label="關閉">×</button>
+  <div class="lb-tip" id="lbTip">雙指縮放・拖曳移動・雙擊放大</div>
+  <img id="lbImg" alt="放大檢視">
+</div>
+
+<script>
+const TOTAL=84;
+const IMAGES=Array.from({length:TOTAL},(_,i)=>`pages/p${String(i+1).padStart(2,'0')}.jpg`);
+const TOC=[
+  {p:1,t:'封面',k:'sec'},{p:2,t:'關於薪鼎',k:'sec'},
+  {p:6,t:'塑膠包裝',k:'sec',c:'plastic'},
+  {p:8,t:'熱銷 TOP10',k:'sub'},{p:10,t:'壽司盒系列',k:'sub'},{p:12,t:'外燴盒系列',k:'sub'},
+  {p:14,t:'烘焙系列',k:'sub'},{p:18,t:'中秋系列',k:'sub'},{p:20,t:'萬用盒／有格系列',k:'sub'},
+  {p:24,t:'蔬果盒系列',k:'sub'},{p:26,t:'生鮮托盤系列',k:'sub'},{p:29,t:'內襯系列',k:'sub'},
+  {p:33,t:'紙類包裝',k:'sec',c:'paper'},
+  {p:33,t:'油飯禮盒',k:'sub'},{p:35,t:'烘焙蛋糕盒',k:'sub'},{p:48,t:'餐盒／野餐盒',k:'sub'},
+  {p:53,t:'年節禮盒',k:'sub'},{p:56,t:'中秋禮盒系列',k:'sub'},{p:71,t:'茶葉禮盒',k:'sub'},
+  {p:72,t:'牛軋糖禮盒',k:'sub'},{p:74,t:'聖誕禮盒',k:'sub'},{p:77,t:'幸福小品（婚禮）',k:'sub'},{p:79,t:'包裝配件',k:'sub'},
+  {p:83,t:'客製服務',k:'sec',c:'cust'},{p:84,t:'官網／封底',k:'sec'},
+];
+
+const bookEl=document.getElementById('book');
+IMAGES.forEach((src,i)=>{
+  const d=document.createElement('div'); d.className='page';
+  const im=document.createElement('img'); im.src=src; im.alt='型錄 '+(i+1); im.draggable=false;
+  d.appendChild(im); bookEl.appendChild(d);
+});
+
+const pnum=document.getElementById('pnum'), slider=document.getElementById('slider');
+const prevBtn=document.getElementById('prev'), nextBtn=document.getElementById('next'), hint=document.getElementById('hint');
+
+const pageFlip=new St.PageFlip(bookEl,{
+  width:500, height:708, size:'stretch',
+  minWidth:300, maxWidth:620, minHeight:420, maxHeight:900,
+  showCover:true, usePortrait:true, maxShadowOpacity:0.5,
+  mobileScrollSupport:true, drawShadow:true, flippingTime:650, autoSize:true,
+});
+pageFlip.loadFromHTML(bookEl.querySelectorAll('.page'));
+
+const curPage=()=>pageFlip.getCurrentPageIndex()+1;
+function sync(){const c=curPage();pnum.textContent=c;slider.value=c;prevBtn.disabled=c<=1;nextBtn.disabled=c>=TOTAL;}
+pageFlip.on('flip',sync); pageFlip.on('init',sync);
+pageFlip.on('changeState',e=>{if(e.data==='read')sync();});
+
+prevBtn.onclick=()=>pageFlip.flipPrev();
+nextBtn.onclick=()=>pageFlip.flipNext();
+slider.oninput=e=>{pageFlip.turnToPage(+e.target.value-1);pnum.textContent=+e.target.value;};
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')pageFlip.flipNext();if(e.key==='ArrowLeft')pageFlip.flipPrev();});
+setTimeout(()=>{hint.style.opacity=0;},4000);
+
+// 目錄
+const scrim=document.getElementById('scrim'), toc=document.getElementById('toc');
+const openToc=()=>{scrim.classList.add('open');toc.classList.add('open');};
+const closeToc=()=>{scrim.classList.remove('open');toc.classList.remove('open');};
+document.getElementById('openToc').onclick=openToc; scrim.onclick=closeToc;
+const list=document.getElementById('tocList');
+TOC.forEach(it=>{
+  const b=document.createElement('button'); b.className=it.k+(it.c?(' '+it.c):'');
+  const dot=(it.k==='sec'&&it.c)?'<span class="dot"></span>':'';
+  b.innerHTML=`${dot}<span>${it.t}</span><span class="pg">${it.p}</span>`;
+  b.onclick=()=>{pageFlip.flip(it.p-1);closeToc();setTimeout(sync,60);};
+  list.appendChild(b);
+});
+window.addEventListener('resize',()=>{try{pageFlip.update&&pageFlip.update();}catch(e){}});
+
+/* ===== 放大檢視（雙指縮放＋拖曳＋雙擊） ===== */
+const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'), lbTip=document.getElementById('lbTip');
+let sc=1,tx=0,ty=0, iw=0,ih=0;
+function apply(){lbImg.style.transform=`translate(-50%,-50%) translate(${tx}px,${ty}px) scale(${sc})`;}
+function fitLb(){
+  const nw=lbImg.naturalWidth||595, nh=lbImg.naturalHeight||842, r=nw/nh;
+  const vw=innerWidth,vh=innerHeight;
+  let w=vw, h=vw/r; if(h>vh){h=vh;w=vh*r;}
+  lbImg.style.width=w+'px'; lbImg.style.height=h+'px'; iw=w; ih=h;
+  sc=1;tx=0;ty=0;apply();
+}
+function openLb(){
+  lb.classList.add('open');
+  lbTip.style.opacity=1; setTimeout(()=>lbTip.style.opacity=0,2200);
+  lbImg.onload=fitLb;
+  lbImg.src=IMAGES[curPage()-1];
+  if(lbImg.complete && lbImg.naturalWidth) fitLb();
+}
+function closeLb(){lb.classList.remove('open');}
+document.getElementById('zoomBtn').onclick=openLb;
+document.getElementById('lbClose').onclick=closeLb;
+
+function clampPan(){
+  const maxX=Math.max(0,(iw*sc-innerWidth)/2), maxY=Math.max(0,(ih*sc-innerHeight)/2);
+  tx=Math.max(-maxX,Math.min(maxX,tx)); ty=Math.max(-maxY,Math.min(maxY,ty));
+}
+let pts=new Map(), startDist=0, startSc=1, startMid={x:0,y:0}, startTx=0, startTy=0, lastTap=0;
+lb.addEventListener('pointerdown',e=>{lb.setPointerCapture(e.pointerId);pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  if(pts.size===1){startTx=tx;startTy=ty;startMid={x:e.clientX,y:e.clientY};
+    const now=Date.now(); if(now-lastTap<300){ sc=sc>1?1:3; clampPan(); apply(); } lastTap=now;
+  } else if(pts.size===2){const a=[...pts.values()];startDist=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);startSc=sc;}
+});
+lb.addEventListener('pointermove',e=>{ if(!pts.has(e.pointerId))return; pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  const a=[...pts.values()];
+  if(pts.size===2){const d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y); sc=Math.max(1,Math.min(8,startSc*d/startDist)); clampPan(); apply();}
+  else if(pts.size===1&&sc>1){tx=startTx+(e.clientX-startMid.x);ty=startTy+(e.clientY-startMid.y);clampPan();apply();}
+});
+function up(e){pts.delete(e.pointerId); if(pts.size<2)startDist=0;}
+lb.addEventListener('pointerup',up); lb.addEventListener('pointercancel',up);
+lb.addEventListener('wheel',e=>{e.preventDefault(); sc=Math.max(1,Math.min(8,sc*(e.deltaY<0?1.12:0.9))); clampPan(); apply();},{passive:false});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+</script>
+</body>
+</html>
