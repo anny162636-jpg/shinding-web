@@ -15,7 +15,7 @@ a{color:inherit}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
 .logo{display:flex;flex-direction:column;text-decoration:none;line-height:1}
 .logo b{font-weight:900;font-size:17px;letter-spacing:1px}
-.logo span{font:800 9.5px/1 'Poppins',sans-serif;letter-spacing:2.6px;color:var(--teal-d);margin-top:5px}
+.logo span{font:800 9.5px/1 'Poppins',sans-serif;letter-spacing:2.6px;color:var(--purple-d);margin-top:5px}
 .nav nav{display:flex;align-items:center;gap:22px}
 .nav nav a{text-decoration:none;font-size:14.5px;font-weight:500;color:var(--mute);transition:color .15s}
 .nav nav a:hover{color:var(--ink)}
@@ -28,7 +28,7 @@ a{color:inherit}
 .back{display:inline-block;font-size:13.5px;font-weight:700;color:var(--mute);text-decoration:none;margin-bottom:22px}
 .back:hover{color:var(--purple)}
 .back.b2{margin:34px 0 46px}
-.chead .eyebrow{font:800 11px/1 'Poppins',sans-serif;letter-spacing:3.2px;color:var(--teal-d);text-transform:uppercase}
+.chead .eyebrow{font:800 11px/1 'Poppins',sans-serif;letter-spacing:3.2px;color:var(--purple-d);text-transform:uppercase}
 .chead h1{margin:12px 0 0;font-weight:900;font-size:clamp(26px,4vw,40px);letter-spacing:1.5px;line-height:1.18}
 .chead .kind{margin:10px 0 0;font-size:15px;color:var(--mute);line-height:1.7}
 .chead .meta{display:flex;flex-wrap:wrap;gap:12px 40px;margin-top:24px}
@@ -41,7 +41,7 @@ a{color:inherit}
 .m{margin:0 0 20px}
 .m img,.m video{width:100%;height:auto;border-radius:10px;background:#f3f1ee}
 .dvd{display:flex;align-items:center;gap:16px;margin:40px 0 26px}
-.dvd span{font:800 11px/1 'Poppins',sans-serif;letter-spacing:3px;color:var(--teal-d);text-transform:uppercase;white-space:nowrap}
+.dvd span{font:800 11px/1 'Poppins',sans-serif;letter-spacing:3px;color:var(--purple-d);text-transform:uppercase;white-space:nowrap}
 .dvd::after{content:"";flex:1;height:1px;background:var(--line)}
 
 /* cta + footer */
