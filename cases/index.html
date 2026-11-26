@@ -233,9 +233,9 @@ const CASES=[
 {slug:"vitt",nm:"VITT",kind:"包裝設計",items:"",cover:W("779c2e_a0d38402f4bf42eebedcbefd3c706f4b~mv2.jpg"),tags:["公版套版客製"]},
 {slug:"jinfang",nm:"錦芳油飯",kind:"品牌識別・包裝設計",items:"",cover:W("779c2e_df43b46304b44c58a2f68734ef935099~mv2.jpg"),tags:["品牌設計包裝","品牌識別"]},
 {slug:"shengfu",nm:"笙富食品",kind:"CIS・包裝設計",items:"",cover:W("779c2e_c9839169a7b24723b04ab03be1144271~mv2.jpg"),tags:["品牌設計包裝","品牌識別"]},
-{slug:"ami",nm:"阿米手作蛋糕",kind:"公版套版客製・蛋糕提盒",items:"公版提盒・業主 LOGO 套用・正反面設計",cover:"./covers/ami.webp",tags:["公版套版客製", "外帶盒"]},
-{slug:"coco",nm:"CoCo 手工麻糬",kind:"公版套版客製・麻糬提盒",items:"公版提盒・業主 LOGO 套用",cover:"./covers/coco.webp",tags:["公版套版客製", "禮盒", "提袋"]},
-{slug:"senxiang",nm:"森巷手作烘焙",kind:"公版套版客製・蛋糕禮盒",items:"公版禮盒・緞帶包裝・業主 LOGO 套用",cover:"./covers/senxiang.webp",tags:["公版套版客製", "禮盒"]},
+{slug:"ami",nm:"阿米手作蛋糕",kind:"套用公版設計・公版盒型",items:"蛋糕提盒・業主 LOGO 套用",cover:"./covers/ami.webp",tags:["公版套版客製","外帶盒"]},
+{slug:"coco",nm:"CoCo 手工麻糬",kind:"套用公版設計・公版盒型",items:"麻糬提盒・業主 LOGO 套用",cover:"./covers/coco.webp",tags:["公版套版客製","禮盒","提袋"]},
+{slug:"senxiang",nm:"森巷手作烘焙",kind:"品牌設計包裝・客戶自行設計",items:"蛋糕禮盒・緞帶包裝",cover:"./covers/senxiang.webp",tags:["品牌設計包裝","禮盒"]},
 {slug:"xiangchi",nm:"饗吃麵",kind:"品牌設計包裝・客戶自行設計",items:"麵條盒・客戶插畫",cover:"./covers/xiangchi.webp",tags:["品牌設計包裝"]},
 {slug:"hailong",nm:"海隆國際",kind:"包裝設計",items:"麵條禮盒・內盒結構",cover:"./covers/hailong.webp",tags:["品牌設計包裝", "禮盒"]},
 {slug:"ladymama",nm:"Lady Mama",kind:"喜餅禮盒包裝設計",items:"喜餅盒・提盒・提袋",cover:"./covers/ladymama.webp",tags:["品牌設計包裝", "禮盒", "提袋"]},
@@ -261,6 +261,8 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const grid=document.getElementById('grid'),countEl=document.getElementById('count');
 const io=reduce?null:new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.05,rootMargin:'0px 0px -24px 0px'});
 let active="全部";
+try{const hf=decodeURIComponent((location.hash.match(/^#f=(.+)$/)||[])[1]||'');const sf=sessionStorage.getItem('sd_cases_f');const want=hf||sf||'';if(want&&(want==='全部'||CASES.some(c=>c.tags.includes(want))))active=want;}catch(e){}
+const saveState=()=>{try{sessionStorage.setItem('sd_cases_f',active);sessionStorage.setItem('sd_cases_y',String(scrollY));history.replaceState(null,'',active==='全部'?location.pathname+location.search:'#f='+encodeURIComponent(active));}catch(e){}};
 const countOf=t=>t==="全部"?CASES.length:CASES.filter(c=>c.tags.includes(t)).length;
 const chip=(t,k)=>'<button class="chip '+k+'" data-tag="'+t+'" aria-pressed="'+(t===active)+'">'+t+' <span class="n">'+countOf(t)+'</span></button>';
 function buildFilters(){
@@ -269,7 +271,7 @@ function buildFilters(){
   document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{
     active=b.dataset.tag;
     document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x.dataset.tag===active));
-    render();
+    render();saveState();
   }));
 }
 function card(c){
@@ -289,6 +291,12 @@ function render(){
   grid.innerHTML=arr.map(card).join('');observe();
 }
 buildFilters();render();
+(function(){let y=0;try{y=+sessionStorage.getItem('sd_cases_y')||0}catch(e){}
+  const back=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0]||{}).type==='back_forward'||/^#f=/.test(location.hash);
+  if(back&&y>0){if('scrollRestoration' in history)history.scrollRestoration='manual';grid.querySelectorAll('.reveal').forEach(e=>e.classList.add('in'));requestAnimationFrame(()=>scrollTo(0,y));setTimeout(()=>scrollTo(0,y),250);}
+})();
+grid.addEventListener('click',e=>{if(e.target.closest('a.card'))saveState();},true);
+addEventListener('pagehide',saveState);
 if(matchMedia('(hover: none)').matches){
   grid.addEventListener('click',e=>{
     const c=e.target.closest('.card');if(!c)return;
