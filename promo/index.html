@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>薪鼎包裝｜最新優惠</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --purple:#924898; --blue:#1E4D81; --plastic-blue:#083B74;
+    --yellow:#FFE566; --teal:#12A19A; --teal-d:#0E837D;
+    --ink:#231F20; --paper:#ffffff; --mute:#6b6760;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:'Noto Sans TC',sans-serif; color:var(--ink);
+    background:#F4F2EE; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:720px;margin:0 auto;background:var(--paper);min-height:100vh}
+  /* 白是底；核心＝淺色漸層色片，被白框住。紫、藍不混色，各自實心用在標籤。 */
+  header{background:#fff;padding:20px 16px 16px}
+  .hero{
+    position:relative;overflow:hidden;border-radius:20px;padding:30px 26px 28px;
+    background:linear-gradient(130deg,#ECDAF3 0%,#F4E4ED 40%,#E7DDF5 66%,#DCE5F7 100%);
+    box-shadow:0 10px 26px rgba(90,60,120,.10);
+  }
+  .hero .eyebrow{font:800 12px/1 'Poppins',sans-serif;letter-spacing:3px;color:#8a4e91;text-transform:uppercase}
+  .hero h1{margin:10px 0 0;font-weight:900;font-size:34px;letter-spacing:1px;color:#3f2147}
+  .hero .sub{margin-top:7px;font-size:14px;color:#6a5a72}
+  .teal-rule{height:5px;background:var(--teal)}
+
+  main{padding:20px 16px 40px}
+  .empty{
+    text-align:center;color:var(--mute);padding:64px 24px;font-size:16px;line-height:1.7;
+  }
+  .empty b{display:block;color:var(--ink);font-size:18px;margin-bottom:6px}
+
+  .card{
+    border:1px solid #ece8e1;border-radius:18px;overflow:hidden;background:#fff;
+    box-shadow:0 8px 24px rgba(40,25,60,.06);margin-bottom:22px;
+  }
+  .card-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:16px 18px 12px}
+  .tag{font-size:13px;font-weight:700;color:#fff;background:var(--purple);
+       padding:5px 12px;border-radius:999px;letter-spacing:.5px}
+  .tag.plastic{background:var(--plastic-blue)}
+  .tag.paper{background:var(--teal-d)}
+  .card-title{font-weight:900;font-size:19px;margin:0;flex:1 1 auto;min-width:160px}
+  .daysleft{font-size:13px;font-weight:700;color:var(--teal-d);
+            background:#e7f4f2;padding:5px 11px;border-radius:999px;white-space:nowrap}
+  .period{display:flex;align-items:center;gap:8px;padding:0 18px 14px;color:var(--mute);font-size:13.5px}
+  .period .dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 2px #e8c93a inset}
+  .imgwrap{display:block;border-top:1px solid #f1ede6}
+  .imgwrap img{display:block;width:100%;height:auto}
+  .card-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 18px}
+  .note{color:var(--mute);font-size:13px;line-height:1.5}
+  .zoom{flex:none;font-size:14px;font-weight:700;color:#fff;background:var(--purple);
+        text-decoration:none;padding:9px 16px;border-radius:999px}
+  .zoom:active{background:#7a3b80}
+
+  footer{padding:22px 20px 34px;color:var(--mute);font-size:12.5px;line-height:1.7;border-top:1px solid #efece6}
+  footer a{color:var(--blue)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="hero">
+      <div class="eyebrow">SENIOR DEED · LATEST OFFERS</div>
+      <h1>最新優惠</h1>
+      <div class="sub">薪鼎包裝 — 當期活動一覽</div>
+    </div>
+  </header>
+  <div class="teal-rule"></div>
+
+  <main id="offers"><!-- 由 JS 依日期填入 --></main>
+
+  <footer>
+    價格、規格及數量以實際報價為準；台灣地區限定。活動期間以各檔標示為準。<br>
+    聯絡：薪鼎企業有限公司　TEL 04-853-2559
+  </footer>
+</div>
+
+<script>
+/* ===== 優惠資料：新增一檔就加一個物件（固定顯示，不會自動下架） =====
+   category: "綜合" | "塑膠" | "紙"
+   img：優惠圖網址（目前用 Google Drive 公開圖；上線後可換成網站自家圖）
+   link：點「看大圖」開啟的網址
+*/
+const OFFERS = [
+  {
+    title: "2026 聖誕節 DM",
+    category: "綜合",          // 紙盒＋塑膠盒＋提袋都有
+    start: "2026-11-10T00:00:00+08:00",
+    end:   "2026-12-25T23:59:59+08:00",
+    img:   "christmas-dm.png",
+    link:  "christmas-dm.png",
+    note:  "聖誕手提盒、蛋糕盒、提袋等當期優惠，暖心價至 12/25。"
+  }
+];
+
+const TAGCLASS = { "塑膠":"plastic", "紙":"paper", "綜合":"" };
+
+function fmt(d){
+  const x=new Date(d);
+  return x.getFullYear()+"/"+String(x.getMonth()+1).padStart(2,"0")+"/"+String(x.getDate()).padStart(2,"0");
+}
+function render(){
+  const now = new Date();
+  const live = OFFERS.slice()
+    .sort((a,b)=> new Date(a.end)-new Date(b.end));
+  const host = document.getElementById("offers");
+  if(!live.length){
+    host.innerHTML = '<div class="empty"><b>目前沒有優惠</b>新的優惠檔期上架後會顯示在這裡。</div>';
+    return;
+  }
+  host.innerHTML = live.map(o=>{
+    const days = Math.ceil((new Date(o.end)-now)/86400000);
+    const leftBadge = days>0 ? `<span class="daysleft">剩 ${days} 天</span>` : "";
+    const cls = TAGCLASS[o.category] ?? "";
+    const tagtxt = o.category==="綜合" ? "綜合（紙＋塑膠）" : o.category;
+    return `
+      <article class="card">
+        <div class="card-top">
+          <span class="tag ${cls}">${tagtxt}</span>
+          <h2 class="card-title">${o.title}</h2>
+          ${leftBadge}
+        </div>
+        <div class="period"><span class="dot"></span>活動期間　${fmt(o.start)} – ${fmt(o.end)}</div>
+        <a class="imgwrap" href="${o.link}" target="_blank" rel="noopener">
+          <img src="${o.img}" alt="${o.title}" loading="lazy">
+        </a>
+        <div class="card-foot">
+          <div class="note">${o.note||""}</div>
+          <a class="zoom" href="${o.link}" target="_blank" rel="noopener">看大圖</a>
+        </div>
+      </article>`;
+  }).join("");
+}
+render();
+</script>
+</body>
+</html>
