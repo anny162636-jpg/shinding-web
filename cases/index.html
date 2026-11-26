@@ -3,168 +3,242 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>薪鼎包裝｜客製作品案例</title>
+<title>客製包裝作品案例｜薪鼎包裝 SENIOR DEED</title>
+<meta name="description" content="薪鼎包裝客製作品案例：禮盒、提袋、外帶盒、紙箱與盒型結構，從品牌包裝設計到量產交付一手整合。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{--purple:#924898;--purple-d:#7a3b80;--plastic:#083B74;--teal:#12A19A;--teal-d:#0E837D;--ink:#231F20;--deep:#3f2147;--mute:#6b6760;--line:#ece8e1;--bg:#F4F2EE}
-  *{box-sizing:border-box}html,body{margin:0}
-  body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1180px;margin:0 auto;background:#fff;min-height:100vh}
+  :root{
+    --purple:#924898;--purple-d:#7a3b80;--plastic:#083B74;--teal:#12A19A;--teal-d:#0E837D;
+    --ink:#231F20;--mute:#6b6760;--line:#e8e5e0;--maxw:1200px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Noto Sans TC',sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  @media(max-width:560px){.container{padding:0 16px}}
 
-  /* top works marquee */
-  .marquee{position:relative;overflow:hidden;padding:20px 0 22px;background:linear-gradient(180deg,#F5EEFA,#FFFFFF);
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-  .track{display:flex;gap:14px;width:max-content;animation:scrollx 72s linear infinite;will-change:transform}
-  .track.rev{animation-direction:reverse;animation-duration:88s;margin-top:14px}
-  .marquee:hover .track{animation-play-state:paused}
-  @keyframes scrollx{to{transform:translateX(-50%)}}
-  .mqi{width:148px;height:148px;border-radius:13px;overflow:hidden;flex:none;box-shadow:0 6px 16px rgba(60,33,71,.10);background:#efe9f3}
-  .mqi img{width:100%;height:100%;object-fit:cover;display:block}
-  @media(max-width:560px){.mqi{width:116px;height:116px}}
+  /* ===== top nav (full-bleed, like a normal site) ===== */
+  .nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
+  .logo{display:flex;flex-direction:column;text-decoration:none;line-height:1}
+  .logo b{font-weight:900;font-size:17px;letter-spacing:1px}
+  .logo span{font:800 9.5px/1 'Poppins',sans-serif;letter-spacing:2.6px;color:var(--teal-d);margin-top:5px}
+  .nav nav{display:flex;align-items:center;gap:22px}
+  .nav nav a{text-decoration:none;font-size:14.5px;font-weight:500;color:var(--mute);transition:color .15s}
+  .nav nav a:hover{color:var(--ink)}
+  .nav nav a.cur{color:var(--ink);font-weight:700}
+  .btn-line{background:var(--purple);color:#fff!important;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;transition:background .15s}
+  .btn-line:hover{background:var(--purple-d)}
+  @media(max-width:640px){.nav-in{height:58px}.nav nav a:not(.btn-line){display:none}.logo b{font-size:15px}}
 
-  header{padding:34px 26px 24px;border-bottom:1px solid var(--line)}
-  header .brand{font:800 11px/1 'Poppins',sans-serif;letter-spacing:3px;color:var(--teal-d);text-transform:uppercase}
-  header h1{margin:12px 0 0;font-weight:900;font-size:34px;letter-spacing:2px;color:var(--deep)}
-  header p{margin:9px 0 0;font-size:14px;color:var(--mute)}
+  /* ===== hero: full-bleed, one work at a time ===== */
+  .hero{position:relative;height:clamp(300px,52vh,520px);overflow:hidden;background:#201e1f}
+  .hero .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease}
+  .hero .slide.on{opacity:1}
+  .hero .slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.02)}
+  .hero .slide.on img{animation:kb 8.5s linear forwards}
+  @keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.10)}}
+  .hero .scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,25,25,.8) 0%,rgba(26,25,25,.34) 46%,rgba(26,25,25,.1) 100%)}
+  .hero .inner{position:absolute;inset:auto 0 0 0;padding-bottom:34px;color:#fff;z-index:2}
+  .hero .eyebrow{font:800 11px/1 'Poppins',sans-serif;letter-spacing:3.4px;color:#d9d4d6;text-transform:uppercase}
+  .hero h1{margin:14px 0 0;font-weight:900;font-size:clamp(27px,4.6vw,44px);letter-spacing:2px;line-height:1.16;text-shadow:0 2px 14px rgba(0,0,0,.3)}
+  .hero .lead{margin:11px 0 0;font-size:15px;color:#e3dfe0;max-width:52ch;line-height:1.75}
+  .hero .nowname{position:absolute;right:0;bottom:36px;z-index:2;text-align:right;color:rgba(255,255,255,.66);font:600 10.5px/1 'Poppins',sans-serif;letter-spacing:1.6px}
+  .hero .nowname b{display:block;font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:13px;letter-spacing:.5px;color:#fff;margin-top:6px}
+  @media(max-width:700px){.hero .nowname{display:none}.hero .inner{padding-bottom:26px}}
 
-  .tabs{display:flex;gap:10px;padding:18px 26px 4px;flex-wrap:wrap;position:sticky;top:0;z-index:6;background:rgba(255,255,255,.92);backdrop-filter:blur(8px)}
-  .tab{border:1.5px solid #e4dcea;background:#fff;color:var(--mute);cursor:pointer;font-family:inherit;font-weight:700;font-size:15px;padding:10px 20px;border-radius:999px;transition:.15s;display:flex;align-items:center;gap:8px}
-  .tab .n{font:700 12px/1 'Poppins',sans-serif;background:#f0eaf3;color:#9a7aa5;padding:3px 8px;border-radius:999px}
-  .tab[aria-selected="true"]{background:var(--purple);border-color:var(--purple);color:#fff}
-  .tab[aria-selected="true"] .n{background:rgba(255,255,255,.22);color:#fff}
+  /* ===== filters ===== */
+  .filters{border-bottom:1px solid var(--line);background:#fff;padding:18px 0 14px}
+  .frow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .frow+.frow{margin-top:10px}
+  .flabel{font:700 10px/1 'Poppins',sans-serif;letter-spacing:2.2px;color:var(--teal-d);text-transform:uppercase;width:52px;flex:none}
+  @media(max-width:560px){.flabel{width:100%;margin-bottom:2px}}
+  .chip{border:1.5px solid var(--line);background:#fff;color:var(--mute);cursor:pointer;font-family:inherit;font-weight:700;font-size:13.5px;
+        padding:8px 15px;border-radius:999px;transition:.15s;display:inline-flex;align-items:center;gap:6px}
+  .chip .n{font:700 11px/1 'Poppins',sans-serif;color:#aaa39f}
+  .chip:hover{border-color:#c9c3bd;color:var(--ink)}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .chip[aria-pressed="true"] .n{color:rgba(255,255,255,.72)}
 
-  main{padding:20px 26px 10px}
-  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  @media(max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
-  @media(max-width:680px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+  /* ===== grid ===== */
+  main{padding:26px 0 8px}
+  .count{font-size:13px;color:var(--mute);margin:0 0 16px}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media(max-width:1020px){.grid{grid-template-columns:repeat(3,1fr);gap:16px}}
+  @media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}}
 
-  /* square card, hover reveals content (SHINE.IN style) */
-  .card{position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;display:block;text-decoration:none;color:#fff;
-        background:#eee;box-shadow:0 8px 20px rgba(40,25,60,.06);transition:transform .2s ease,box-shadow .2s ease}
-  .card:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(60,33,71,.16)}
-  .card .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-  .card .ph svg{width:40px;height:40px;opacity:.5}
-  .v1{background:linear-gradient(135deg,#ECDAF3,#DCE5F7)}.v2{background:linear-gradient(140deg,#DCE5F7,#D6EDEA)}.v3{background:linear-gradient(135deg,#F4E4ED,#E0E6F6)}.v4{background:linear-gradient(150deg,#E9DEF2,#D4E9E6)}
-  .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-  .card:hover img{transform:scale(1.05)}
-  /* always-on bottom name, hover shows full */
+  .card{position:relative;aspect-ratio:1/1;border-radius:10px;overflow:hidden;display:block;text-decoration:none;color:#fff;
+        background:#f1efec;transition:box-shadow .2s ease}
+  .card:hover{box-shadow:0 14px 30px rgba(35,31,32,.16)}
+  .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+  .card:hover img{transform:scale(1.045)}
+  /* neutral dark-grey overlay, text only on hover */
   .meta{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;opacity:0;transition:opacity .28s ease;
-        background:linear-gradient(to top,rgba(30,16,36,.9) 0%,rgba(30,16,36,.5) 52%,rgba(30,16,36,.08) 100%)}
-  .card:hover .meta{opacity:1}
-  .meta .nm{font-weight:900;font-size:18px;line-height:1.22;text-shadow:0 1px 6px rgba(0,0,0,.35)}
-  .meta .nm .en{display:block;font:600 10px/1.3 'Poppins',sans-serif;letter-spacing:.5px;color:#d9c4e3;margin-top:4px}
-  .meta .items{font-size:12px;color:#ecdff2;line-height:1.55;margin-top:9px}
-  .card.show .meta{opacity:1}
+        background:linear-gradient(to top,rgba(28,27,27,.92) 0%,rgba(28,27,27,.55) 54%,rgba(28,27,27,.06) 100%)}
+  .card:hover .meta,.card.show .meta{opacity:1}
+  .meta .nm{font-weight:900;font-size:17px;line-height:1.24}
+  .meta .nm span{display:block;font-weight:500;font-size:11.5px;line-height:1.45;color:#c9c4c2;margin-top:5px;letter-spacing:.2px}
+  .meta .tg{display:flex;gap:5px;flex-wrap:wrap;margin-top:10px}
+  .meta .tg span{font-size:10.5px;font-weight:700;color:#efecea;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.2);padding:3px 8px;border-radius:999px}
+  .meta .items{font-size:11.5px;color:#d8d4d2;line-height:1.55;margin-top:9px}
 
-  .reveal{opacity:0;transform:translateY(16px)}
+  .reveal{opacity:0;transform:translateY(14px)}
   .reveal.in{opacity:1;transform:none;transition:opacity .5s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1)}
-  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.card:hover{transform:none}.card:hover img{transform:none}.track{animation:none}}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none}.card:hover img{transform:none}
+    .hero .slide.on img{animation:none}.hero .slide{transition:none}
+  }
 
-  .empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:70px 24px;line-height:1.9}
-  .empty b{display:block;color:var(--ink);font-size:19px;margin-bottom:8px}
-  .empty svg{width:52px;height:52px;opacity:.4;margin-bottom:14px}
+  .empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:64px 20px;line-height:1.9}
+  .empty b{display:block;color:var(--ink);font-size:18px;margin-bottom:8px}
 
-  .cta{margin:26px 26px 0;border-radius:18px;background:var(--plastic);color:#fff;padding:30px 28px;text-align:center}
-  .cta h2{margin:0;font-weight:900;font-size:21px;letter-spacing:1px}
-  .cta p{margin:8px 0 18px;font-size:14px;color:#cbd7e6}
-  .cta a{display:inline-block;background:var(--purple);color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 26px;border-radius:999px}
-  footer{padding:24px;color:var(--mute);font-size:12.5px;line-height:1.7;text-align:center}
+  /* ===== cta + footer (full-bleed) ===== */
+  .cta{margin-top:40px;background:var(--plastic);color:#fff;padding:52px 0;text-align:center}
+  .cta h2{margin:0;font-weight:900;font-size:clamp(20px,3vw,26px);letter-spacing:1px}
+  .cta p{margin:10px 0 22px;font-size:14.5px;color:#c8d4e3}
+  .cta a{display:inline-block;background:#fff;color:var(--plastic);text-decoration:none;font-weight:800;font-size:15px;padding:13px 30px;border-radius:999px}
+  footer{background:#1c1b1b;color:#b5b0ae;padding:34px 0;font-size:13px;line-height:1.8}
+  footer .fin{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer b{color:#fff;font-weight:700;display:block;margin-bottom:6px}
+  footer a{color:#b5b0ae;text-decoration:none}footer a:hover{color:#fff}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="marquee" aria-hidden="true">
-    <div class="track" id="mq1"></div>
-    <div class="track rev" id="mq2"></div>
+
+<header class="nav">
+  <div class="container nav-in">
+    <a class="logo" href="#top"><b>薪鼎包裝</b><span>SENIOR DEED</span></a>
+    <nav>
+      <a class="cur" href="#works">作品案例</a>
+      <a href="../">線上型錄</a>
+      <a href="https://www.shinding.com" target="_blank" rel="noopener">官方網站</a>
+      <a class="btn-line" href="#line">LINE 諮詢</a>
+    </nav>
   </div>
-  <header>
-    <div class="brand">Senior Deed · 薪鼎包裝</div>
+</header>
+
+<section class="hero" id="top">
+  <div id="slides"></div>
+  <div class="scrim"></div>
+  <div class="inner"><div class="container">
+    <div class="eyebrow">Selected Packaging Works</div>
     <h1>客製包裝作品案例</h1>
-    <p>設計到量產，一手整合。（頂部版面之後再設計）</p>
-  </header>
-  <div class="tabs" role="tablist">
-    <button class="tab" role="tab" data-tag="all" aria-selected="true">全部 <span class="n" id="n-all">0</span></button>
-    <button class="tab" role="tab" data-tag="brand" aria-selected="false">品牌設計包裝 <span class="n" id="n-brand">0</span></button>
-    <button class="tab" role="tab" data-tag="stock" aria-selected="false">公版套版客製 <span class="n" id="n-stock">0</span></button>
+    <p class="lead">從品牌包裝設計到禮盒、提袋、盒型結構與量產交付，薪鼎一手整合設計與生產。</p>
+  </div></div>
+  <div class="container" style="position:absolute;inset:0;pointer-events:none"><div class="nowname" id="nowname"></div></div>
+</section>
+
+<div class="filters" id="works">
+  <div class="container">
+    <div class="frow"><span class="flabel">Service</span><span class="frow" id="f-service" style="margin:0"></span></div>
+    <div class="frow"><span class="flabel">品項</span><span class="frow" id="f-item" style="margin:0"></span></div>
   </div>
-  <main><div class="grid" id="grid"></div></main>
-  <div class="cta">
+</div>
+
+<main>
+  <div class="container">
+    <p class="count" id="count"></p>
+    <div class="grid" id="grid"></div>
+  </div>
+</main>
+
+<section class="cta" id="line">
+  <div class="container">
     <h2>想做你自己的客製包裝？</h2>
     <p>紙盒、塑膠、禮盒、提袋——不分材質，由薪鼎為你規劃設計到量產。</p>
     <a href="#line">加入官方 LINE 諮詢</a>
   </div>
-  <footer>薪鼎企業有限公司　SENIOR DEED<br>作品著作權屬各品牌與薪鼎所有，未經同意請勿轉用。</footer>
-</div>
+</section>
+
+<footer>
+  <div class="container fin">
+    <div><b>薪鼎企業有限公司　SENIOR DEED</b>彰化縣大村鄉中山路三段 2 巷 412 號｜TEL 04-853-2559</div>
+    <div>作品著作權屬各品牌與薪鼎所有，未經同意請勿轉用。</div>
+  </div>
+</footer>
+
 <script>
 const B="https://www.shineintw.com/assets/img/cases/";
+/* 一個案例可同時掛多個標籤，會出現在各該篩選下，但永遠是同一張卡、不拆開。 */
 const CASES=[
-{cat:"brand",slug:"mijiou",nm:"MIJIOU 咪玖",en:"MIJIOU",yr:"2022–2025",items:"品牌識別・禮盒封套・提袋腰封・酥餅盒・宅配箱・新年禮盒",cover:B+"mijiou/mij-cny25-gw.webp"},
-{cat:"brand",slug:"yuyou",nm:"魚有王",en:"TUNA KING",yr:"2023–2025",items:"星空上掀禮盒・吉祥物禮盒系列・單入提盒・品牌提袋",cover:B+"yuyou/yuyou-t-z08.webp"},
-{cat:"brand",slug:"wumi",nm:"五麋人",en:"WOO CHARMING",yr:"2023",items:"中秋禮盒・極光禮盒・吉祥物外帶盒・提袋",cover:B+"wumi/wm-c07b.webp"},
-{cat:"brand",slug:"bd",nm:"寶達香",en:"PAO DA SHIANG",yr:"2022",items:"傳承禮盒・花開質清禮盒・提袋・瓜子立袋",cover:B+"bd/bd-24a-gw.webp"},
-{cat:"brand",slug:"yg",nm:"鶯格格",en:"YING GE GE",yr:"2024",items:"青花/花卉/深藍款禮盒・提袋・夾鏈立袋",cover:B+"yg/yg-p06c-gw.webp"},
-{cat:"brand",slug:"congge",nm:"聰哥團長蛋黃酥",en:"CONG GE",yr:"2022",items:"蛋黃酥禮盒・花卉款禮盒・手提禮盒・提袋",cover:B+"congge/cg-hero2-gw.webp"},
-{cat:"brand",slug:"zhong",nm:"鍾師父",en:"MASTER CHUNG",yr:"2024",items:"牛軋糖提把禮盒・三入抽屜禮盒・牡丹三入禮盒",cover:B+"zhong/zhong-14-gw.webp"},
-{cat:"brand",slug:"xiong",nm:"雄二家",en:"FUTATSUKUMAYA",yr:"2023",items:"蛋黃酥長盒・雙掀提盒三款",cover:B+"xiong/xiong-14-gw.webp"},
-{cat:"brand",slug:"mimi",nm:"覓蜜甜點",en:"DULCE CAKE",yr:"2025",items:"甜點方形禮盒・四款禮盒系列・品牌提袋",cover:B+"mimi/mimi-01-gpt-gw.webp"},
-{cat:"brand",slug:"lw",nm:"樂玟甜品",en:"LE WEN",yr:"2024",items:"甜點禮盒五款・點心包裝袋・品牌 DM",cover:B+"lw/lw-t-a.webp"},
-{cat:"brand",slug:"scone",nm:"尷尬司康",en:"EMBARRASSING SCONE",yr:"2024",items:"六入司康禮盒・手提緞帶飛機盒",cover:B+"scone/gg-06b-gw.webp"},
-{cat:"brand",slug:"alfredo",nm:"Alfredo 榴槤巧克力",en:"ALFREDO",yr:"2023",items:"榴槤巧克力禮盒・小盒・單顆包裝",cover:B+"alfredo/al-t-04.webp"},
-{cat:"brand",slug:"bibi",nm:"比比炸雞",en:"BIBI CHICKEN",yr:"2023",items:"炸雞平放盒・手提盒・韓式炸雞包裝・盒型結構",cover:B+"bibi/bb-6-gw.webp"},
-{cat:"brand",slug:"lj",nm:"老井極上燒肉",en:"GOKUJO YAKINIKU",yr:"2023",items:"燒肉禮盒組・品牌提袋・包裝結構設計",cover:B+"lj/lj-t-gift.webp"},
-{cat:"brand",slug:"dx",nm:"東興市魯肉義",en:"DONG XING",yr:"2023–2024",items:"經典魯肉冷凍盒・小魚乾玻璃罐・紙箱貼紙",cover:B+"dx/dx-02-wall.webp"},
-{cat:"brand",slug:"pj",nm:"啵啵香酸菜魚",en:"UBONA × LAOJING",yr:"2024",items:"酸菜魚盒・品牌提袋・聯名包裝",cover:B+"pj/pj-1-gw.webp"},
-{cat:"brand",slug:"ubona",nm:"UBona 啵啵香",en:"UBONA",yr:"2025",items:"麻辣臭豆腐盒・鴨血盒・外盒・提袋",cover:B+"ubona/ub-06-gw.webp"},
-{cat:"brand",slug:"zhiyue",nm:"指月亭",en:"SHIGETSUTEI",yr:"2023",items:"辣椒醬雙入禮盒・味噌辣椒醬罐禮盒・提袋・宅配箱",cover:B+"zhiyue/zhiyue-16-gw.webp"},
-{cat:"brand",slug:"noodle",nm:"丞喜食品 × 製麵先生",en:"NOODLE CHEN",yr:"2022",items:"麵條盒裝系列・包裝袋・出貨紙箱",cover:B+"noodle/noodle-12-gw.webp"},
-{cat:"brand",slug:"sochill",nm:"敘丘食品",en:"SOCHILL",yr:"2022",items:"果茶夾鏈袋・包裝系統",cover:B+"sochill/so-00g.webp"},
-{cat:"brand",slug:"berry",nm:"不能莓有妳",en:"STRAWBERRY FARM",yr:"2023",items:"草莓手提盒・提袋・果醬罐・果汁瓶",cover:B+"berry/bf-bag-gw.webp"},
-{cat:"brand",slug:"hs",nm:"紅山農產",en:"MOUNTAIN JAMBU",yr:"2022",items:"3 斤/5 斤/10 斤提把禮盒",cover:B+"hs/hs-20-gpt-wl.webp"},
-{cat:"brand",slug:"pine",nm:"鳳梨大亨",en:"PINEAPPLE TYCOON",yr:"2022",items:"果乾夾鏈袋・果醬罐吊牌・牛皮紙箱",cover:B+"pine/pine-box03-wall.webp"},
-{cat:"brand",slug:"lee",nm:"李的綠意花園",en:"LEE'S GREEN GARDEN",yr:"2024",items:"帆布提袋・植栽提袋・培養土袋・品牌貼紙",cover:B+"lee/lee-14-f2.webp"},
-{cat:"brand",slug:"fulcon",nm:"富爾康",en:"FULCON",yr:"2024",items:"護膝包裝盒・護腰包裝盒・護具包裝設計",cover:B+"fulcon/fulcon-p05-gw.webp"}
+{slug:"alfredo",nm:"Alfredo",kind:"包裝設計",items:"榴槤巧克力禮盒・小盒・單顆糖果包裝",cover:B+"alfredo/al-cover.webp",tags:["品牌設計包裝", "禮盒"]},
+{slug:"bd",nm:"寶達香 PAO DA SHIANG",kind:"品牌識別・懷舊線與現代線",items:"品牌策略・懷舊線／現代線標誌系統・名片・提袋・禮盒・夾鏈袋・摺頁・官網",cover:B+"bd/bd-cover2.webp",tags:["品牌設計包裝", "禮盒", "提袋", "袋類", "品牌識別"]},
+{slug:"berry",nm:"不能莓有妳",kind:"品牌識別・標誌優化・手提盒包裝",items:"品牌識別・標誌優化・色彩計畫・品牌應用・手提盒包裝",cover:B+"berry/bf-cover.webp",tags:["品牌設計包裝", "外帶盒", "品牌識別"]},
+{slug:"bibi",nm:"比比炸雞 BiBi Chicken",kind:"韓式炸雞外帶包裝",items:"平放盒（大／小）・手提盒（大／小）・盒型結構",cover:B+"bibi/bb-cover2.webp",tags:["品牌設計包裝", "外帶盒", "盒型結構"]},
+{slug:"congge",nm:"聰哥團長",kind:"品牌識別・包裝設計・實體應用",items:"品牌形象優化・色彩計畫・禮盒包裝・店卡",cover:B+"congge/cg-cover.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
+{slug:"dx",nm:"東興市魯肉義",kind:"經典魯肉・辣椒小魚乾 包裝設計",items:"經典魯肉 3／5 入盒・2 入辣椒小魚乾禮盒・罐標・宅配箱貼紙",cover:B+"dx/dx-cover.webp",tags:["品牌設計包裝", "禮盒", "紙箱", "貼紙標籤"]},
+{slug:"fan",nm:"FÂN PÂTISSERIE",kind:"品牌識別",items:"Logo 設計・色彩計畫・輔助圖形・字型規範・品牌應用・品牌影片",cover:B+"fan/fan-cover.webp",tags:["品牌設計包裝", "品牌識別"]},
+{slug:"fulcon",nm:"富爾康",kind:"護具包裝設計・品牌識別",items:"包裝設計・刀模結構・Logo 優化・CIS",cover:B+"fulcon/fulcon-cover3.webp",tags:["品牌設計包裝", "盒型結構", "品牌識別"]},
+{slug:"hs",nm:"紅山農產 MOUNTAIN JAMBU",kind:"品牌策略・品牌識別・禮盒包裝",items:"品牌塑造流程・市場分析・品牌定位・品牌故事・標誌設計・色彩・字型・招牌・3／5／10 斤禮盒",cover:B+"hs/hs-cover2.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
+{slug:"lee",nm:"李的綠意花園",kind:"品牌識別・實體應用",items:"品牌識別・實體應用",cover:B+"lee/lee-cover-sb.webp",tags:["品牌設計包裝", "品牌識別"]},
+{slug:"lj",nm:"老井極上燒肉 GOKUJO YAKINIKU",kind:"禮盒・提袋 包裝結構設計",items:"禮盒結構・提袋・湯品與啤酒組合包裝",cover:B+"lj/lj-cover.webp",tags:["品牌設計包裝", "禮盒", "提袋", "盒型結構"]},
+{slug:"lw",nm:"樂玟甜品工作室 LOVE・WHEN WORKSHOP",kind:"品牌識別・禮盒包裝設計",items:"標誌優化・色彩計畫・字型・輔助圖形・品牌應用・禮盒包裝 A–E 款",cover:B+"lw/lw-cover.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
+{slug:"mijiou",nm:"MIJIOU 咪玖",kind:"品牌識別・包裝設計",items:"商標優化・禮盒封套・提袋腰封・酥餅盒・宅配箱",cover:B+"mijiou/mij-cover8.webp",tags:["品牌設計包裝", "禮盒", "提袋", "紙箱", "品牌識別"]},
+{slug:"mimi",nm:"覓蜜甜點",kind:"品牌識別・禮盒包裝",items:"Logo・品牌色彩・禮盒包裝",cover:B+"mimi/mimi-cover3.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
+{slug:"noodle",nm:"製麵先生",kind:"品牌識別・包裝設計・數位應用・實體應用",items:"品牌識別・包裝設計・數位應用・實體應用",cover:B+"noodle/noodle-cover2.webp",tags:["品牌設計包裝", "品牌識別"]},
+{slug:"pine",nm:"鳳梨大亨",kind:"品牌識別・紙箱包裝・社群平台建置",items:"Logo・色彩計畫・紙箱包裝・社群平台建置",cover:B+"pine/pine-cover.webp",tags:["品牌設計包裝", "紙箱", "品牌識別"]},
+{slug:"pj",nm:"啵啵香酸菜魚 UBona × 老井",kind:"聯名酸菜魚 包裝設計",items:"聯名酸菜魚 外盒・提袋・品牌情境",cover:B+"pj/pj-1.webp",tags:["品牌設計包裝", "提袋", "外帶盒"]},
+{slug:"scone",nm:"尷尬司康 Embarrassing Scone",kind:"手提緞帶飛機盒 包裝設計",items:"手提緞帶飛機盒・打凸＋印刷 三款提案",cover:B+"scone/gg-cover.webp",tags:["品牌設計包裝"]},
+{slug:"sochill",nm:"敘丘食品 SOCHILL",kind:"品牌識別・果茶包裝",items:"品牌識別・標誌設計・色彩計畫・品牌應用・果茶夾鏈袋包裝",cover:B+"sochill/so-cover3.webp",tags:["品牌設計包裝", "袋類", "品牌識別"]},
+{slug:"ubona",nm:"UBona 啵啵香",kind:"麻辣臭豆腐・麻辣鴨血 包裝設計",items:"麻辣臭豆腐・麻辣鴨血 外盒與提袋",cover:B+"ubona/ub-cover5.webp",tags:["品牌設計包裝", "提袋", "外帶盒"]},
+{slug:"wumi",nm:"五麋人 WOO CHARMING",kind:"標誌優化・吉祥物優化・禮盒包裝",items:"標誌優化・吉祥物優化・色彩計畫・中秋禮盒包裝・品牌應用",cover:B+"wumi/wm-cover.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
+{slug:"xiong",nm:"雄二家",kind:"品牌識別・包裝設計",items:"Logo 優化・色彩計畫・字體與輔助圖形・禮盒包裝",cover:B+"xiong/xiong-cover6.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
+{slug:"yg",nm:"鶯格格手工伴手禮 YING GE-GE",kind:"品牌識別・夾鏈袋與禮盒包裝",items:"標誌設計・色彩計畫・字型・輔助圖形・名片・提袋・夾鏈袋三款・禮盒三款",cover:B+"yg/yg-cover.webp",tags:["品牌設計包裝", "禮盒", "提袋", "袋類", "品牌識別"]},
+{slug:"yuyou",nm:"魚有王",kind:"品牌識別・包裝設計",items:"品牌識別・禮盒・提袋・單入盒",cover:B+"yuyou/yuyou-cover2.webp",tags:["品牌設計包裝", "禮盒", "提袋", "品牌識別"]},
+{slug:"zhiyue",nm:"指月亭",kind:"品牌識別・包裝設計",items:"Logo 優化・色彩計畫・包裝設計",cover:B+"zhiyue/zhiyue-cover2.webp",tags:["品牌設計包裝", "品牌識別"]},
+{slug:"zhong",nm:"鍾師父",kind:"品牌識別・禮盒包裝",items:"Logo・禮盒包裝・延伸應用",cover:B+"zhong/zhong-cover-v2.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]}
 ];
-const bi='<svg viewBox="0 0 24 24" fill="none" stroke="#3f2147" stroke-width="1.4" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>';
-const grid=document.getElementById('grid');
-(function(){
-  const covers=CASES.filter(c=>c.cover).map(c=>c.cover);
-  const mk=arr=>arr.concat(arr).map(u=>'<div class="mqi"><img src="'+u+'" alt="" loading="lazy" onerror="this.closest(\'.mqi\').style.display=\'none\'"></div>').join('');
-  document.getElementById('mq1').innerHTML=mk(covers);
-  document.getElementById('mq2').innerHTML=mk(covers.slice().reverse());
-})();
+const SERVICE=["品牌設計包裝","公版套版客製"];
+const ITEMS=["禮盒","提袋","外帶盒","紙箱","袋類","貼紙標籤","盒型結構","品牌識別"];
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* hero: one at a time, slow */
+(function(){
+  const host=document.getElementById('slides'),now=document.getElementById('nowname');
+  const list=CASES.filter(c=>c.cover);
+  host.innerHTML=list.map((c,i)=>'<div class="slide'+(i===0?' on':'')+'"><img src="'+c.cover+'" alt="'+c.nm+'"'+(i>1?' loading="lazy"':'')+'></div>').join('');
+  const sl=[...host.children],setName=i=>now.innerHTML='Selected Work<b>'+list[i].nm+'</b>';
+  setName(0); if(reduce)return;
+  let i=0;setInterval(()=>{sl[i].classList.remove('on');i=(i+1)%sl.length;sl[i].classList.add('on');setName(i);},6200);
+})();
+
+const grid=document.getElementById('grid'),countEl=document.getElementById('count');
 const io=reduce?null:new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.05,rootMargin:'0px 0px -24px 0px'});
-function card(c,i){
-  const v='v'+((i%4)+1);
-  const img=c.cover?'<img src="'+c.cover+'" alt="'+c.nm+' 包裝作品" loading="lazy" onerror="this.style.display=\'none\'">':'';
-  const items=c.items?'<span class="items">'+c.items+'</span>':'';
-  return '<a class="card reveal '+v+'" href="#'+c.slug+'"><span class="ph">'+bi+'</span>'+img
-    +'<span class="meta">'
-    +'<span class="nm">'+c.nm+(c.en?'<span class="en">'+c.en+'</span>':'')+'</span>'+items+'</span></a>';
+let active="全部";
+const countOf=t=>t==="全部"?CASES.length:CASES.filter(c=>c.tags.includes(t)).length;
+const chip=t=>'<button class="chip" data-tag="'+t+'" aria-pressed="'+(t===active)+'">'+t+' <span class="n">'+countOf(t)+'</span></button>';
+function buildFilters(){
+  document.getElementById('f-service').innerHTML=['全部'].concat(SERVICE).map(chip).join('');
+  document.getElementById('f-item').innerHTML=ITEMS.map(chip).join('');
+  document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{
+    active=b.dataset.tag;
+    document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x.dataset.tag===active));
+    render();
+  }));
+}
+function card(c){
+  const tg=c.tags.filter(t=>!SERVICE.includes(t));
+  return '<a class="card reveal" href="#'+c.slug+'">'
+    +'<img src="'+c.cover+'" alt="'+c.nm+' 包裝作品" loading="lazy">'
+    +'<span class="meta"><span class="nm">'+c.nm+'<span>'+(c.kind||'')+'</span></span>'
+    +(tg.length?'<span class="tg">'+tg.map(t=>'<span>'+t+'</span>').join('')+'</span>':'')
+    +'<span class="items">'+c.items+'</span></span></a>';
 }
 function observe(){const els=grid.querySelectorAll('.reveal:not(.in)');if(reduce){els.forEach(e=>e.classList.add('in'));return;}els.forEach((el,i)=>{el.style.transitionDelay=Math.min(i*35,300)+'ms';io.observe(el);});}
-/* 一個案例可同時掛多個標籤（例：同案既有公版盒型、也有新開盒型），
-   會同時出現在兩個篩選下，但永遠是同一張卡、不拆開。 */
-const tagsOf=c=>c.tags||[c.cat];
-function render(tag){
-  const arr=(tag==='all')?CASES.slice():CASES.filter(c=>tagsOf(c).includes(tag));
-  if(!arr.length){grid.innerHTML='<div class="empty">'+bi+'<b>這個分類的案例整理中</b>公版套版客製的實績即將補上，敬請期待。</div>';return;}
+function render(){
+  const arr=(active==="全部")?CASES.slice():CASES.filter(c=>c.tags.includes(active));
+  countEl.textContent=(active==="全部"?'全部作品':active)+'　'+arr.length+' 件';
+  if(!arr.length){grid.innerHTML='<div class="empty"><b>「'+active+'」的案例整理中</b>這個分類的實績即將補上，敬請期待。</div>';return;}
   grid.innerHTML=arr.map(card).join('');observe();
 }
-document.getElementById('n-all').textContent=CASES.length;
-document.getElementById('n-brand').textContent=CASES.filter(c=>tagsOf(c).includes('brand')).length;
-document.getElementById('n-stock').textContent=CASES.filter(c=>tagsOf(c).includes('stock')).length;
-document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
-  document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected','false'));
-  t.setAttribute('aria-selected','true');render(t.dataset.tag);
-}));
-render('all');
-/* 觸控裝置：沒有 hover，改成點一下才浮出文字（再點一下收起） */
+buildFilters();render();
 if(matchMedia('(hover: none)').matches){
   grid.addEventListener('click',e=>{
-    const c=e.target.closest('.card'); if(!c)return;
+    const c=e.target.closest('.card');if(!c)return;
     e.preventDefault();
     const was=c.classList.contains('show');
     grid.querySelectorAll('.card.show').forEach(x=>x.classList.remove('show'));
