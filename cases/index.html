@@ -170,35 +170,35 @@
 
 <script>
 const B="https://www.shineintw.com/assets/img/cases/";
-const W=id=>"https://static.wixstatic.com/media/"+id+"/v1/fill/w_1000,h_1000,al_c,q_85,enc_auto/file.jpg";
+const W=id=>"https://static.wixstatic.com/media/"+id+"/v1/fill/w_600,h_600,al_c,q_85,enc_auto/file.jpg";
 /* 一個案例可同時掛多個標籤，會出現在各該篩選下，但永遠是同一張卡、不拆開。 */
 const CASES=[
-{slug:"alfredo",nm:"Alfredo",kind:"包裝設計",items:"榴槤巧克力禮盒・小盒・單顆糖果包裝",cover:B+"alfredo/al-cover.webp",tags:["品牌設計包裝", "禮盒"]},
-{slug:"bd",nm:"寶達香 PAO DA SHIANG",kind:"品牌識別・懷舊線與現代線",items:"品牌策略・懷舊線／現代線標誌系統・名片・提袋・禮盒・夾鏈袋・摺頁・官網",cover:B+"bd/bd-cover2.webp",tags:["品牌設計包裝", "禮盒", "提袋", "袋類", "品牌識別"]},
-{slug:"berry",nm:"不能莓有妳",kind:"品牌識別・標誌優化・手提盒包裝",items:"品牌識別・標誌優化・色彩計畫・品牌應用・手提盒包裝",cover:B+"berry/bf-cover.webp",tags:["品牌設計包裝", "外帶盒", "品牌識別"]},
-{slug:"bibi",nm:"比比炸雞 BiBi Chicken",kind:"韓式炸雞外帶包裝",items:"平放盒（大／小）・手提盒（大／小）・盒型結構",cover:B+"bibi/bb-cover2.webp",tags:["品牌設計包裝", "外帶盒", "盒型結構"]},
-{slug:"congge",nm:"聰哥團長",kind:"品牌識別・包裝設計・實體應用",items:"品牌形象優化・色彩計畫・禮盒包裝・店卡",cover:B+"congge/cg-cover.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
-{slug:"dx",nm:"東興市魯肉義",kind:"經典魯肉・辣椒小魚乾 包裝設計",items:"經典魯肉 3／5 入盒・2 入辣椒小魚乾禮盒・罐標・宅配箱貼紙",cover:B+"dx/dx-cover.webp",tags:["品牌設計包裝", "禮盒", "紙箱", "貼紙標籤"]},
-{slug:"fan",nm:"FÂN PÂTISSERIE",kind:"品牌識別",items:"Logo 設計・色彩計畫・輔助圖形・字型規範・品牌應用・品牌影片",cover:B+"fan/fan-cover.webp",tags:["品牌設計包裝", "品牌識別"]},
-{slug:"fulcon",nm:"富爾康",kind:"護具包裝設計・品牌識別",items:"包裝設計・刀模結構・Logo 優化・CIS",cover:B+"fulcon/fulcon-cover3.webp",tags:["品牌設計包裝", "盒型結構", "品牌識別"]},
-{slug:"hs",nm:"紅山農產 MOUNTAIN JAMBU",kind:"品牌策略・品牌識別・禮盒包裝",items:"品牌塑造流程・市場分析・品牌定位・品牌故事・標誌設計・色彩・字型・招牌・3／5／10 斤禮盒",cover:B+"hs/hs-cover2.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
-{slug:"lee",nm:"李的綠意花園",kind:"品牌識別・實體應用",items:"品牌識別・實體應用",cover:B+"lee/lee-cover-sb.webp",tags:["品牌設計包裝", "品牌識別"]},
-{slug:"lj",nm:"老井極上燒肉 GOKUJO YAKINIKU",kind:"禮盒・提袋 包裝結構設計",items:"禮盒結構・提袋・湯品與啤酒組合包裝",cover:B+"lj/lj-cover.webp",tags:["品牌設計包裝", "禮盒", "提袋", "盒型結構"]},
-{slug:"lw",nm:"樂玟甜品工作室 LOVE・WHEN WORKSHOP",kind:"品牌識別・禮盒包裝設計",items:"標誌優化・色彩計畫・字型・輔助圖形・品牌應用・禮盒包裝 A–E 款",cover:B+"lw/lw-cover.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
-{slug:"mijiou",nm:"MIJIOU 咪玖",kind:"品牌識別・包裝設計",items:"商標優化・禮盒封套・提袋腰封・酥餅盒・宅配箱",cover:B+"mijiou/mij-cover8.webp",tags:["品牌設計包裝", "禮盒", "提袋", "紙箱", "品牌識別"]},
-{slug:"mimi",nm:"覓蜜甜點",kind:"品牌識別・禮盒包裝",items:"Logo・品牌色彩・禮盒包裝",cover:B+"mimi/mimi-cover3.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
-{slug:"noodle",nm:"製麵先生",kind:"品牌識別・包裝設計・數位應用・實體應用",items:"品牌識別・包裝設計・數位應用・實體應用",cover:B+"noodle/noodle-cover2.webp",tags:["品牌設計包裝", "品牌識別"]},
-{slug:"pine",nm:"鳳梨大亨",kind:"品牌識別・紙箱包裝・社群平台建置",items:"Logo・色彩計畫・紙箱包裝・社群平台建置",cover:B+"pine/pine-cover.webp",tags:["品牌設計包裝", "紙箱", "品牌識別"]},
-{slug:"pj",nm:"啵啵香酸菜魚 UBona × 老井",kind:"聯名酸菜魚 包裝設計",items:"聯名酸菜魚 外盒・提袋・品牌情境",cover:B+"pj/pj-1.webp",tags:["品牌設計包裝", "提袋", "外帶盒"]},
-{slug:"scone",nm:"尷尬司康 Embarrassing Scone",kind:"手提緞帶飛機盒 包裝設計",items:"手提緞帶飛機盒・打凸＋印刷 三款提案",cover:B+"scone/gg-cover.webp",tags:["品牌設計包裝"]},
-{slug:"sochill",nm:"敘丘食品 SOCHILL",kind:"品牌識別・果茶包裝",items:"品牌識別・標誌設計・色彩計畫・品牌應用・果茶夾鏈袋包裝",cover:B+"sochill/so-cover3.webp",tags:["品牌設計包裝", "袋類", "品牌識別"]},
-{slug:"ubona",nm:"UBona 啵啵香",kind:"麻辣臭豆腐・麻辣鴨血 包裝設計",items:"麻辣臭豆腐・麻辣鴨血 外盒與提袋",cover:B+"ubona/ub-cover5.webp",tags:["品牌設計包裝", "提袋", "外帶盒"]},
-{slug:"wumi",nm:"五麋人 WOO CHARMING",kind:"標誌優化・吉祥物優化・禮盒包裝",items:"標誌優化・吉祥物優化・色彩計畫・中秋禮盒包裝・品牌應用",cover:B+"wumi/wm-cover.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
-{slug:"xiong",nm:"雄二家",kind:"品牌識別・包裝設計",items:"Logo 優化・色彩計畫・字體與輔助圖形・禮盒包裝",cover:B+"xiong/xiong-cover6.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
-{slug:"yg",nm:"鶯格格手工伴手禮 YING GE-GE",kind:"品牌識別・夾鏈袋與禮盒包裝",items:"標誌設計・色彩計畫・字型・輔助圖形・名片・提袋・夾鏈袋三款・禮盒三款",cover:B+"yg/yg-cover.webp",tags:["品牌設計包裝", "禮盒", "提袋", "袋類", "品牌識別"]},
-{slug:"yuyou",nm:"魚有王",kind:"品牌識別・包裝設計",items:"品牌識別・禮盒・提袋・單入盒",cover:B+"yuyou/yuyou-cover2.webp",tags:["品牌設計包裝", "禮盒", "提袋", "品牌識別"]},
-{slug:"zhiyue",nm:"指月亭",kind:"品牌識別・包裝設計",items:"Logo 優化・色彩計畫・包裝設計",cover:B+"zhiyue/zhiyue-cover2.webp",tags:["品牌設計包裝", "品牌識別"]},
-{slug:"zhong",nm:"鍾師父",kind:"品牌識別・禮盒包裝",items:"Logo・禮盒包裝・延伸應用",cover:B+"zhong/zhong-cover-v2.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
+{slug:"alfredo",nm:"Alfredo",kind:"包裝設計",items:"榴槤巧克力禮盒・小盒・單顆糖果包裝",cover:"./covers/alfredo.webp",o:B+"alfredo/al-cover.webp",tags:["品牌設計包裝", "禮盒"]},
+{slug:"bd",nm:"寶達香 PAO DA SHIANG",kind:"品牌識別・懷舊線與現代線",items:"品牌策略・懷舊線／現代線標誌系統・名片・提袋・禮盒・夾鏈袋・摺頁・官網",cover:"./covers/bd.webp",o:B+"bd/bd-cover2.webp",tags:["品牌設計包裝", "禮盒", "提袋", "袋類", "品牌識別"]},
+{slug:"berry",nm:"不能莓有妳",kind:"品牌識別・標誌優化・手提盒包裝",items:"品牌識別・標誌優化・色彩計畫・品牌應用・手提盒包裝",cover:"./covers/berry.webp",o:B+"berry/bf-cover.webp",tags:["品牌設計包裝", "外帶盒", "品牌識別"]},
+{slug:"bibi",nm:"比比炸雞 BiBi Chicken",kind:"韓式炸雞外帶包裝",items:"平放盒（大／小）・手提盒（大／小）・盒型結構",cover:"./covers/bibi.webp",o:B+"bibi/bb-cover2.webp",tags:["品牌設計包裝", "外帶盒", "盒型結構"]},
+{slug:"congge",nm:"聰哥團長",kind:"品牌識別・包裝設計・實體應用",items:"品牌形象優化・色彩計畫・禮盒包裝・店卡",cover:"./covers/congge.webp",o:B+"congge/cg-cover.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
+{slug:"dx",nm:"東興市魯肉義",kind:"經典魯肉・辣椒小魚乾 包裝設計",items:"經典魯肉 3／5 入盒・2 入辣椒小魚乾禮盒・罐標・宅配箱貼紙",cover:"./covers/dx.webp",o:B+"dx/dx-cover.webp",tags:["品牌設計包裝", "禮盒", "紙箱", "貼紙標籤"]},
+{slug:"fan",nm:"FÂN PÂTISSERIE",kind:"品牌識別",items:"Logo 設計・色彩計畫・輔助圖形・字型規範・品牌應用・品牌影片",cover:"./covers/fan.webp",o:B+"fan/fan-cover.webp",tags:["品牌設計包裝", "品牌識別"]},
+{slug:"fulcon",nm:"富爾康",kind:"護具包裝設計・品牌識別",items:"包裝設計・刀模結構・Logo 優化・CIS",cover:"./covers/fulcon.webp",o:B+"fulcon/fulcon-cover3.webp",tags:["品牌設計包裝", "盒型結構", "品牌識別"]},
+{slug:"hs",nm:"紅山農產 MOUNTAIN JAMBU",kind:"品牌策略・品牌識別・禮盒包裝",items:"品牌塑造流程・市場分析・品牌定位・品牌故事・標誌設計・色彩・字型・招牌・3／5／10 斤禮盒",cover:"./covers/hs.webp",o:B+"hs/hs-cover2.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
+{slug:"lee",nm:"李的綠意花園",kind:"品牌識別・實體應用",items:"品牌識別・實體應用",cover:"./covers/lee.webp",o:B+"lee/lee-cover-sb.webp",tags:["品牌設計包裝", "品牌識別"]},
+{slug:"lj",nm:"老井極上燒肉 GOKUJO YAKINIKU",kind:"禮盒・提袋 包裝結構設計",items:"禮盒結構・提袋・湯品與啤酒組合包裝",cover:"./covers/lj.webp",o:B+"lj/lj-cover.webp",tags:["品牌設計包裝", "禮盒", "提袋", "盒型結構"]},
+{slug:"lw",nm:"樂玟甜品工作室 LOVE・WHEN WORKSHOP",kind:"品牌識別・禮盒包裝設計",items:"標誌優化・色彩計畫・字型・輔助圖形・品牌應用・禮盒包裝 A–E 款",cover:"./covers/lw.webp",o:B+"lw/lw-cover.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
+{slug:"mijiou",nm:"MIJIOU 咪玖",kind:"品牌識別・包裝設計",items:"商標優化・禮盒封套・提袋腰封・酥餅盒・宅配箱",cover:"./covers/mijiou.webp",o:B+"mijiou/mij-cover8.webp",tags:["品牌設計包裝", "禮盒", "提袋", "紙箱", "品牌識別"]},
+{slug:"mimi",nm:"覓蜜甜點",kind:"品牌識別・禮盒包裝",items:"Logo・品牌色彩・禮盒包裝",cover:"./covers/mimi.webp",o:B+"mimi/mimi-cover3.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
+{slug:"noodle",nm:"製麵先生",kind:"品牌識別・包裝設計・數位應用・實體應用",items:"品牌識別・包裝設計・數位應用・實體應用",cover:"./covers/noodle.webp",o:B+"noodle/noodle-cover2.webp",tags:["品牌設計包裝", "品牌識別"]},
+{slug:"pine",nm:"鳳梨大亨",kind:"品牌識別・紙箱包裝・社群平台建置",items:"Logo・色彩計畫・紙箱包裝・社群平台建置",cover:"./covers/pine.webp",o:B+"pine/pine-cover.webp",tags:["品牌設計包裝", "紙箱", "品牌識別"]},
+{slug:"pj",nm:"啵啵香酸菜魚 UBona × 老井",kind:"聯名酸菜魚 包裝設計",items:"聯名酸菜魚 外盒・提袋・品牌情境",cover:"./covers/pj.webp",o:B+"pj/pj-1.webp",tags:["品牌設計包裝", "提袋", "外帶盒"]},
+{slug:"scone",nm:"尷尬司康 Embarrassing Scone",kind:"手提緞帶飛機盒 包裝設計",items:"手提緞帶飛機盒・打凸＋印刷 三款提案",cover:"./covers/scone.webp",o:B+"scone/gg-cover.webp",tags:["品牌設計包裝"]},
+{slug:"sochill",nm:"敘丘食品 SOCHILL",kind:"品牌識別・果茶包裝",items:"品牌識別・標誌設計・色彩計畫・品牌應用・果茶夾鏈袋包裝",cover:"./covers/sochill.webp",o:B+"sochill/so-cover3.webp",tags:["品牌設計包裝", "袋類", "品牌識別"]},
+{slug:"ubona",nm:"UBona 啵啵香",kind:"麻辣臭豆腐・麻辣鴨血 包裝設計",items:"麻辣臭豆腐・麻辣鴨血 外盒與提袋",cover:"./covers/ubona.webp",o:B+"ubona/ub-cover5.webp",tags:["品牌設計包裝", "提袋", "外帶盒"]},
+{slug:"wumi",nm:"五麋人 WOO CHARMING",kind:"標誌優化・吉祥物優化・禮盒包裝",items:"標誌優化・吉祥物優化・色彩計畫・中秋禮盒包裝・品牌應用",cover:"./covers/wumi.webp",o:B+"wumi/wm-cover.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
+{slug:"xiong",nm:"雄二家",kind:"品牌識別・包裝設計",items:"Logo 優化・色彩計畫・字體與輔助圖形・禮盒包裝",cover:"./covers/xiong.webp",o:B+"xiong/xiong-cover6.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
+{slug:"yg",nm:"鶯格格手工伴手禮 YING GE-GE",kind:"品牌識別・夾鏈袋與禮盒包裝",items:"標誌設計・色彩計畫・字型・輔助圖形・名片・提袋・夾鏈袋三款・禮盒三款",cover:"./covers/yg.webp",o:B+"yg/yg-cover.webp",tags:["品牌設計包裝", "禮盒", "提袋", "袋類", "品牌識別"]},
+{slug:"yuyou",nm:"魚有王",kind:"品牌識別・包裝設計",items:"品牌識別・禮盒・提袋・單入盒",cover:"./covers/yuyou.webp",o:B+"yuyou/yuyou-cover2.webp",tags:["品牌設計包裝", "禮盒", "提袋", "品牌識別"]},
+{slug:"zhiyue",nm:"指月亭",kind:"品牌識別・包裝設計",items:"Logo 優化・色彩計畫・包裝設計",cover:"./covers/zhiyue.webp",o:B+"zhiyue/zhiyue-cover2.webp",tags:["品牌設計包裝", "品牌識別"]},
+{slug:"zhong",nm:"鍾師父",kind:"品牌識別・禮盒包裝",items:"Logo・禮盒包裝・延伸應用",cover:"./covers/zhong.webp",o:B+"zhong/zhong-cover-v2.webp",tags:["品牌設計包裝", "禮盒", "品牌識別"]},
 {slug:"fangzhou",nm:"方舟啟智教養院",kind:"",items:"",cover:W("779c2e_7b5fefbc9a1f4de3bfa7476e78abf146~mv2.jpg"),tags:["公版套版客製"],soon:1},
 {slug:"falemi",nm:"法叻米食品",kind:"",items:"",cover:W("779c2e_a6f12d67799d411ab40b067824641831~mv2.jpg"),tags:["公版套版客製"],soon:1},
 {slug:"mantou",nm:"饅頭君",kind:"",items:"",cover:W("779c2e_f65da06a9c8a48f4a73b915aebafe40a~mv2.jpg"),tags:["公版套版客製"],soon:1},
@@ -224,8 +224,8 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* hero: one at a time, slow */
 (function(){
   const host=document.getElementById('slides'),now=document.getElementById('nowname');
-  const list=CASES.filter(c=>c.cover&&!c.soon);
-  host.innerHTML=list.map((c,i)=>'<div class="slide'+(i===0?' on':'')+'"><img src="'+c.cover+'" alt="'+c.nm+'"'+(i>1?' loading="lazy"':'')+'></div>').join('');
+  const list=CASES.filter(c=>c.o).slice(0,6);
+  host.innerHTML=list.map((c,i)=>'<div class="slide'+(i===0?' on':'')+'"><img src="'+(c.o||c.cover)+'" alt="'+c.nm+'"'+(i>1?' loading="lazy"':'')+'></div>').join('');
   const sl=[...host.children],setName=i=>now.innerHTML='Selected Work<b>'+list[i].nm+'</b>';
   setName(0); if(reduce)return;
   let i=0;setInterval(()=>{sl[i].classList.remove('on');i=(i+1)%sl.length;sl[i].classList.add('on');setName(i);},6200);
@@ -249,7 +249,7 @@ function card(c){
   const tg=c.tags.filter(t=>!SERVICE.includes(t));
   const T=c.soon?'span':'a', H=c.soon?'':' href="./'+c.slug+'.html"';
   return '<'+T+' class="card reveal'+(c.soon?' soon':'')+'"'+H+'>'
-    +'<img src="'+c.cover+'" alt="'+c.nm+' 包裝作品" loading="lazy">'
+    +'<img src="'+c.cover+'" alt="'+c.nm+' 包裝作品" width="600" height="600" loading="lazy" decoding="async">'
     +'<span class="meta"><span class="nm">'+c.nm+'<span>'+(c.kind||'')+'</span></span>'
     +(tg.length?'<span class="tg">'+tg.map(t=>'<span>'+t+'</span>').join('')+'</span>':'')
     +(c.items?'<span class="items">'+c.items+'</span>':'')+'</span></'+T+'>';
