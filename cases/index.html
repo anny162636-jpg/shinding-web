@@ -223,7 +223,7 @@ function buildFilters(){
 }
 function card(c){
   const tg=c.tags.filter(t=>!SERVICE.includes(t));
-  return '<a class="card reveal" href="#'+c.slug+'">'
+  return '<a class="card reveal" href="./'+c.slug+'.html">'
     +'<img src="'+c.cover+'" alt="'+c.nm+' 包裝作品" loading="lazy">'
     +'<span class="meta"><span class="nm">'+c.nm+'<span>'+(c.kind||'')+'</span></span>'
     +(tg.length?'<span class="tg">'+tg.map(t=>'<span>'+t+'</span>').join('')+'</span>':'')
@@ -240,10 +240,10 @@ buildFilters();render();
 if(matchMedia('(hover: none)').matches){
   grid.addEventListener('click',e=>{
     const c=e.target.closest('.card');if(!c)return;
+    if(c.classList.contains('show'))return;   // 第二下才進入內頁
     e.preventDefault();
-    const was=c.classList.contains('show');
     grid.querySelectorAll('.card.show').forEach(x=>x.classList.remove('show'));
-    if(!was)c.classList.add('show');
+    c.classList.add('show');
   });
 }
 </script>
