@@ -13,7 +13,7 @@
 <style>
 /* ===== 公版案例模板 v0.1（試作）=====
    VI 四色：每個案例換這四個就好（取自客戶包裝 / Logo） */
-.tp{--bg:#FBF6EA;--ink:#4A3A2E;--accent:#B39A68;--sub:#9A8C78;--tint:#F4EAD0;
+.tp{overflow-x:clip;--bg:#FBF6EA;--ink:#4A3A2E;--accent:#B39A68;--sub:#9A8C78;--tint:#F4EAD0;
   --line:color-mix(in srgb,var(--ink) 14%,transparent);
   background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif}
 .tp *{box-sizing:border-box}
@@ -23,7 +23,7 @@
 
 /* 版位標註（審稿用，可關） */
 .slot-note{position:absolute;left:12px;top:12px;z-index:5;font:600 11px/1.5 Inter,'Noto Sans TC',sans-serif;letter-spacing:.04em;
-  background:rgba(146,72,152,.92);color:#fff;padding:5px 9px;border-radius:6px;pointer-events:none}
+  background:rgba(146,72,152,.92);color:#fff;padding:5px 9px;border-radius:6px;pointer-events:none;max-width:calc(100% - 24px)}
 body.hide-notes .slot-note,body.hide-notes .ph-txt{display:none}
 .notes-toggle{position:fixed;right:16px;bottom:96px;z-index:60;font:600 12px 'Noto Sans TC';background:#924898;color:#fff;border:0;border-radius:999px;padding:10px 16px;box-shadow:0 6px 18px rgba(0,0,0,.18);cursor:pointer}
 .ph{position:relative;background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--accent) 10%,transparent) 0 12px,transparent 12px 24px),var(--tint);
@@ -85,7 +85,7 @@ body.hide-notes .slot-note,body.hide-notes .ph-txt{display:none}
 @media(max-width:900px){.boxes{grid-template-columns:1fr 1fr}}
 
 /* 02 套用的設計 */
-.apply{display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:start}
+.apply{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;align-items:start}
 .apply .card{background:#fff;border:1px solid var(--line);padding:36px 32px;border-radius:4px}
 .apply .card .lg{width:min(260px,70%);margin:0 0 28px}
 .row{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid var(--line);font-size:14.5px}
@@ -93,9 +93,9 @@ body.hide-notes .slot-note,body.hide-notes .ph-txt{display:none}
 .sw{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
 .sw span{display:flex;flex-direction:column;gap:6px;font:500 11px Inter;color:var(--sub);text-align:center}
 .sw i{width:52px;height:52px;border-radius:50%;border:1px solid var(--line)}
-.details{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.details{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
 .details .ph{aspect-ratio:4/5}
-@media(max-width:900px){.apply{grid-template-columns:1fr}}
+@media(max-width:900px){.apply{grid-template-columns:minmax(0,1fr)}}
 
 /* 03 多角度 */
 .angles{display:grid;gap:56px}
@@ -108,9 +108,9 @@ body.hide-notes .slot-note,body.hide-notes .ph-txt{display:none}
 @media(max-width:600px){.ang .r{grid-template-columns:1fr 1fr 1fr;gap:6px}}
 
 /* 04 情境 */
-.scenes{display:grid;grid-template-columns:3fr 2fr;gap:16px}
+.scenes{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:16px}
 .scenes .ph:first-child{aspect-ratio:3/2}.scenes .ph:last-child{aspect-ratio:4/5}
-@media(max-width:760px){.scenes{grid-template-columns:1fr}}
+@media(max-width:760px){.scenes{grid-template-columns:minmax(0,1fr)}}
 
 /* Credits */
 .cred{max-width:720px;margin:110px auto 0;text-align:center}
