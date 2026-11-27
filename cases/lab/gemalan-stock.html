@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>【試作】公版案例模板｜葛瑪蘭之星飯店｜星之坊｜薪鼎包裝</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../sd-shell.css">
+<style>
+/* ===== 公版案例模板 v0.1（試作）=====
+   VI 四色：每個案例換這四個就好（取自客戶包裝 / Logo） */
+.tp{--bg:#FBF6EA;--ink:#4A3A2E;--accent:#B39A68;--sub:#9A8C78;--tint:#F4EAD0;
+  --line:color-mix(in srgb,var(--ink) 14%,transparent);
+  background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif}
+.tp *{box-sizing:border-box}
+.tp img{display:block;max-width:100%}
+.w{max-width:1240px;margin:0 auto;padding:0 32px}
+@media(max-width:760px){.w{padding:0 20px}}
+
+/* 版位標註（審稿用，可關） */
+.slot-note{position:absolute;left:12px;top:12px;z-index:5;font:600 11px/1.5 Inter,'Noto Sans TC',sans-serif;letter-spacing:.04em;
+  background:rgba(146,72,152,.92);color:#fff;padding:5px 9px;border-radius:6px;pointer-events:none}
+body.hide-notes .slot-note,body.hide-notes .ph-txt{display:none}
+.notes-toggle{position:fixed;right:16px;bottom:96px;z-index:60;font:600 12px 'Noto Sans TC';background:#924898;color:#fff;border:0;border-radius:999px;padding:10px 16px;box-shadow:0 6px 18px rgba(0,0,0,.18);cursor:pointer}
+.ph{position:relative;background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--accent) 10%,transparent) 0 12px,transparent 12px 24px),var(--tint);
+  border:1.5px dashed color-mix(in srgb,var(--accent) 60%,transparent);display:flex;align-items:center;justify-content:center;text-align:center}
+.ph-txt{font:500 13px/1.7 'Noto Sans TC';color:var(--sub);padding:16px}
+.ph-txt b{display:block;font:600 15px Inter,'Noto Sans TC';color:var(--ink);margin-bottom:4px}
+
+/* 0 麵包屑（左上） */
+.crumb{padding:22px 0 0;font:500 12.5px 'Noto Sans TC';letter-spacing:.12em;color:var(--sub)}
+.crumb a{color:inherit;text-decoration:none}.crumb a:hover{color:var(--ink)}
+.crumb i{font-style:normal;margin:0 .6em;opacity:.5}
+.crumb b{color:var(--ink);font-weight:600}
+
+/* 1 標題區 */
+.hd{text-align:center;padding:56px 0 48px}
+.eb{font:700 12px 'Cormorant Garamond';letter-spacing:.34em;color:var(--accent);margin:0 0 26px}
+.hd .logo{width:min(300px,62vw);margin:0 auto 22px}
+.hd h1{font:600 clamp(20px,2.6vw,26px) 'Noto Serif TC';letter-spacing:.3em;margin:0 0 18px}
+.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:0 0 16px}
+.chip{font:500 13px 'Noto Sans TC';letter-spacing:.12em;padding:7px 16px;border-radius:999px;border:1px solid var(--line)}
+.chip.k{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.en{font:italic 500 21px 'Cormorant Garamond';color:var(--sub);margin:0 0 34px}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);max-width:980px;margin:0 auto}
+.meta div{padding:18px 10px}.meta div+div{border-left:1px solid var(--line)}
+.meta small{display:block;font:700 11px 'Cormorant Garamond';letter-spacing:.3em;text-transform:uppercase;color:var(--sub);margin-bottom:8px}
+.meta b{font:500 14.5px 'Noto Sans TC'}
+@media(max-width:760px){.meta{grid-template-columns:1fr 1fr}.meta div:nth-child(3){border-left:0}.meta div:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* 2 主視覺 16:9 */
+.hero{position:relative;max-width:1440px;margin:0 auto;aspect-ratio:16/9;overflow:hidden;
+  background:radial-gradient(120% 90% at 50% 40%,#FFF9E8 0%,var(--tint) 55%,#E9D9B2 100%)}
+.hero .floor{position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(#0000,color-mix(in srgb,var(--accent) 22%,transparent))}
+.hero .p{position:absolute;transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .7s;filter:drop-shadow(0 18px 22px rgba(74,58,46,.22))}
+.hero .p:hover{transform:translateY(-3%) scale(1.05);filter:drop-shadow(0 30px 30px rgba(74,58,46,.28))}
+.hero .p1{width:34%;left:33%;bottom:16%}
+.hero .p2{width:25%;left:9%;bottom:12%}
+.hero .p3{width:23%;right:9%;bottom:12%}
+.hero .p4{width:15%;left:42.5%;bottom:4%}
+@media(max-width:760px){.hero{aspect-ratio:4/3}}
+
+/* 章節 */
+.sec{padding:96px 0 0}
+.sh{display:flex;align-items:baseline;gap:18px;margin:0 0 36px;border-bottom:1px solid var(--line);padding-bottom:16px}
+.sh .n{font:700 13px 'Cormorant Garamond';letter-spacing:.3em;color:var(--accent)}
+.sh h2{font:600 clamp(20px,2.4vw,26px) 'Noto Serif TC';letter-spacing:.16em;margin:0}
+.sh p{margin:0 0 0 auto;font:italic 500 17px 'Cormorant Garamond';color:var(--sub)}
+@media(max-width:760px){.sh{flex-wrap:wrap}.sh p{margin:0;width:100%}}
+
+/* 01 公版核心：盒型卡 */
+.boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.bx{background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden;transition:transform .4s,box-shadow .4s}
+.bx:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(74,58,46,.12)}
+.bx .im{aspect-ratio:1;background:var(--tint);display:flex;align-items:center;justify-content:center;padding:12%}
+.bx .im img{max-height:100%;object-fit:contain;filter:drop-shadow(0 10px 12px rgba(74,58,46,.18))}
+.bx .tx{padding:16px 18px 18px}
+.bx .code{font:600 11px Inter;letter-spacing:.14em;color:var(--accent)}
+.bx h3{font:600 16px 'Noto Sans TC';margin:6px 0 4px;letter-spacing:.04em}
+.bx .sz{font:400 13px Inter,'Noto Sans TC';color:var(--sub)}
+@media(max-width:900px){.boxes{grid-template-columns:1fr 1fr}}
+
+/* 02 套用的設計 */
+.apply{display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:start}
+.apply .card{background:#fff;border:1px solid var(--line);padding:36px 32px;border-radius:4px}
+.apply .card .lg{width:min(260px,70%);margin:0 0 28px}
+.row{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid var(--line);font-size:14.5px}
+.row small{font:700 11px 'Cormorant Garamond';letter-spacing:.26em;text-transform:uppercase;color:var(--sub);padding-top:3px}
+.sw{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.sw span{display:flex;flex-direction:column;gap:6px;font:500 11px Inter;color:var(--sub);text-align:center}
+.sw i{width:52px;height:52px;border-radius:50%;border:1px solid var(--line)}
+.details{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.details .ph{aspect-ratio:4/5}
+@media(max-width:900px){.apply{grid-template-columns:1fr}}
+
+/* 03 多角度 */
+.angles{display:grid;gap:56px}
+.ang h3{font:600 15px 'Noto Sans TC';letter-spacing:.1em;margin:0 0 14px;display:flex;gap:14px;align-items:baseline}
+.ang h3 em{font:italic 500 15px 'Cormorant Garamond';color:var(--sub)}
+.ang .r{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ang .r div{aspect-ratio:1;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:10%}
+.ang .r img{max-height:100%;object-fit:contain;transition:transform .5s}
+.ang .r div:hover img{transform:scale(1.06)}
+@media(max-width:600px){.ang .r{grid-template-columns:1fr 1fr 1fr;gap:6px}}
+
+/* 04 情境 */
+.scenes{display:grid;grid-template-columns:3fr 2fr;gap:16px}
+.scenes .ph:first-child{aspect-ratio:3/2}.scenes .ph:last-child{aspect-ratio:4/5}
+@media(max-width:760px){.scenes{grid-template-columns:1fr}}
+
+/* Credits */
+.cred{max-width:720px;margin:110px auto 0;text-align:center}
+.cred h2{font:700 13px 'Cormorant Garamond';letter-spacing:.36em;color:var(--accent);margin:0 0 10px}
+.cred p{font-size:13px;color:var(--sub);margin:0 0 22px}
+.cred .row{text-align:left}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s,transform .8s}.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-in">
+    <a class="logo" href="../"><img src="../sd-logo-pack-horizontal.svg" alt="薪鼎包裝 SENIOR DEED" width="176" height="39"></a>
+    <nav><a class="cur" href="../">作品案例</a><a href="../../">線上型錄</a><a href="https://www.shinding.com" target="_blank" rel="noopener">官方網站</a><a class="btn-line" href="#line">LINE 諮詢</a></nav>
+  </div>
+</header>
+
+<main class="tp">
+  <div class="w crumb"><a href="../">作品案例</a><i>/</i><a href="../#f=%E5%85%AC%E7%89%88%E5%A5%97%E7%89%88%E5%AE%A2%E8%A3%BD">公版製作</a><i>/</i><b>公版盒型・客戶自行設計</b></div>
+
+  <header class="w hd">
+    <p class="eb">STOCK PACKAGING CASE</p>
+    <img class="logo" src="gemalan/logo.png" alt="葛瑪蘭之星飯店 Logo">
+    <h1>星之坊</h1>
+    <div class="chips"><span class="chip k">公版盒型</span><span class="chip">客戶自行設計</span></div>
+    <p class="en">Star Bakery — Cake Boxes on Senior Deed Stock Structures</p>
+    <div class="meta">
+      <div><small>Client</small><b>葛瑪蘭之星飯店</b></div>
+      <div><small>Stock</small><b>公版盒型 4 款</b></div>
+      <div><small>Design</small><b>客戶自行設計</b></div>
+      <div><small>Year</small><b>2023</b></div>
+    </div>
+  </header>
+
+  <figure class="hero" style="margin:0">
+    <span class="slot-note">① 主視覺｜1920×1080・16:9｜目前用 3D 去背組合，之後可換 GPT 情境圖</span>
+    <div class="floor"></div>
+    <img class="p p1" src="gemalan/c8_1.webp" alt="8吋上下蓋蛋糕盒">
+    <img class="p p2" src="gemalan/c6_1.webp" alt="6吋上下蓋蛋糕盒">
+    <img class="p p3" src="gemalan/c4_2.webp" alt="4吋手提蛋糕盒">
+    <img class="p p4" src="gemalan/petal_1.webp" alt="花瓣盒">
+  </figure>
+
+  <section class="w sec reveal">
+    <div class="sh"><span class="n">01</span><h2>公版核心</h2><p>Stock Structures</p></div>
+    <div class="boxes">
+      <div class="bx"><div class="im"><img src="gemalan/c4_1.webp" alt=""></div><div class="tx"><span class="code">STOCK · 01</span><h3>4吋手提蛋糕盒</h3><span class="sz">14 × 14 × 10.5 cm</span></div></div>
+      <div class="bx"><div class="im"><img src="gemalan/c6_1.webp" alt=""></div><div class="tx"><span class="code">STOCK · 02</span><h3>6吋上下蓋蛋糕盒</h3><span class="sz">21 × 21 × 16 cm</span></div></div>
+      <div class="bx"><div class="im"><img src="gemalan/c8_1.webp" alt=""></div><div class="tx"><span class="code">STOCK · 03</span><h3>8吋上下蓋蛋糕盒</h3><span class="sz">25.4 × 25.4 × 16 cm</span></div></div>
+      <div class="bx"><div class="im"><img src="gemalan/petal_1.webp" alt=""></div><div class="tx"><span class="code">STOCK · 04</span><h3>單片蛋糕盒・花瓣盒</h3><span class="sz">15 × 10 × 13 cm</span></div></div>
+    </div>
+  </section>
+
+  <section class="w sec reveal">
+    <div class="sh"><span class="n">02</span><h2>套用的設計</h2><p>Applied Design</p></div>
+    <div class="apply">
+      <div class="card">
+        <img class="lg" src="gemalan/logo.png" alt="">
+        <div class="row"><small>Design</small><span>客戶自行設計</span></div>
+        <div class="row"><small>Brand mark</small><span>星之坊 STAR</span></div>
+        <div class="row"><small>Finish</small><span class="ph-txt" style="padding:0">（待補：印刷／加工方式）</span></div>
+        <div class="sw"><span><i style="background:#F7E7B0"></i>奶油黃</span><span><i style="background:#F6D451"></i>檸檬黃</span><span><i style="background:#BFAE86"></i>沙金</span><span><i style="background:#6B5440"></i>可可棕</span><span><i style="background:#FFFFFF"></i>白</span></div>
+      </div>
+      <div class="details">
+        <div class="ph"><span class="slot-note">② 細節特寫｜1200×1500・4:5</span><span class="ph-txt"><b>Logo 印刷特寫</b>GPT 生成或實拍</span></div>
+        <div class="ph"><span class="slot-note">② 細節特寫｜1200×1500・4:5</span><span class="ph-txt"><b>緞帶／提把結構</b>GPT 生成或實拍</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="w sec reveal">
+    <div class="sh"><span class="n">03</span><h2>多角度</h2><p>Views</p></div>
+    <div class="angles">
+      <div class="ang"><h3>4吋手提蛋糕盒<em>Handle cake box</em></h3><div class="r"><div><img src="gemalan/c4_1.webp" alt=""></div><div><img src="gemalan/c4_2.webp" alt=""></div><div><img src="gemalan/c4_3.webp" alt=""></div></div></div>
+      <div class="ang"><h3>6吋上下蓋蛋糕盒<em>Lid & base box</em></h3><div class="r"><div><img src="gemalan/c6_1.webp" alt=""></div><div><img src="gemalan/c6_2.webp" alt=""></div><div><img src="gemalan/c6_3.webp" alt=""></div></div></div>
+      <div class="ang"><h3>8吋上下蓋蛋糕盒<em>Lid & base box</em></h3><div class="r"><div><img src="gemalan/c8_1.webp" alt=""></div><div><img src="gemalan/c8_2.webp" alt=""></div><div><img src="gemalan/c8_3.webp" alt=""></div></div></div>
+      <div class="ang"><h3>花瓣盒<em>Petal box</em></h3><div class="r"><div><img src="gemalan/petal_1.webp" alt=""></div><div><img src="gemalan/petal_2.webp" alt=""></div><div><img src="gemalan/petal_3.webp" alt=""></div></div></div>
+    </div>
+  </section>
+
+  <section class="w sec reveal">
+    <div class="sh"><span class="n">04</span><h2>使用情境</h2><p>In Use</p></div>
+    <div class="scenes">
+      <div class="ph"><span class="slot-note">③ 情境圖｜1920×1280・3:2</span><span class="ph-txt"><b>門市櫃台／蛋糕裝盒</b>GPT 生成</span></div>
+      <div class="ph"><span class="slot-note">③ 情境圖｜1200×1500・4:5</span><span class="ph-txt"><b>手提外帶</b>GPT 生成</span></div>
+    </div>
+  </section>
+
+  <section class="w cred reveal">
+    <h2>CREDITS</h2>
+    <p class="ph-txt" style="padding:0">（名單待 Andrea 確認）</p>
+    <div class="row"><small>Client</small><span>葛瑪蘭之星飯店｜星之坊</span></div>
+    <div class="row"><small>Design</small><span>客戶自行設計</span></div>
+    <div class="row"><small>3D</small><span class="ph-txt" style="padding:0">待確認</span></div>
+    <div class="row"><small>Production</small><span>薪鼎包裝 Senior Deed</span></div>
+    <div class="row"><small>Year</small><span>2023</span></div>
+  </section>
+
+  <nav style="text-align:center;padding:72px 20px 80px"><a href="../" onclick="if(document.referrer.indexOf('/cases/')>-1&&history.length>1){history.back();return false}" style="display:inline-flex;gap:10px;padding:14px 30px;border:1.5px solid var(--ink);border-radius:999px;color:var(--ink);font:700 15px/1 'Noto Sans TC';letter-spacing:1px;text-decoration:none">← 回作品案例</a></nav>
+</main>
+
+<footer><div class="container fin"><div><b>薪鼎企業有限公司<i>SENIOR DEED</i></b>彰化縣大村鄉中山路三段 2 巷 412 號｜TEL 04-853-2559</div><div>作品著作權屬各品牌與薪鼎所有，未經同意請勿轉用。</div></div></footer>
+<button class="notes-toggle" onclick="document.body.classList.toggle('hide-notes');this.textContent=document.body.classList.contains('hide-notes')?'顯示版位標註':'隱藏版位標註'">隱藏版位標註</button>
+<script>
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(function(e){io.observe(e)});
+</script>
+</body>
+</html>
