@@ -11,6 +11,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@200;300;400;500;700;900&family=Noto+Serif+TC:wght@400;500;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./case-engine.css">
 <link rel="stylesheet" href="./sd-shell.css">
+<style>
+.sd-stockintro{background:#FBF8F3;border-bottom:1px solid #ece6dd;padding:64px 0 58px}
+.sd-stockintro .si-eb{margin:0;font:600 12px/1 'Poppins',sans-serif;letter-spacing:3px;color:#9A8C78}
+.sd-stockintro h2{margin:16px 0 0;font-family:'Noto Serif TC',serif;font-weight:700;color:#2E2A28;
+  font-size:clamp(24px,3.6vw,40px);letter-spacing:1px;line-height:1.3}
+.sd-stockintro h2 em{font-style:normal;font-weight:500;font-size:.72em;color:#4A443D;letter-spacing:0}
+.sd-stockintro .si-lead{margin:16px 0 0;max-width:62ch;color:#6E675F;font-size:15px;line-height:1.9}
+.sd-stockintro .si-pts{list-style:none;margin:32px 0 0;padding:26px 0 0;display:grid;gap:18px;
+  grid-template-columns:repeat(3,1fr);border-top:1px solid #ece6dd}
+.sd-stockintro .si-pts li{display:flex;flex-direction:column;gap:6px}
+.sd-stockintro .si-ic{display:block;width:28px;height:28px;margin:0 0 10px}
+.sd-stockintro .si-ic svg{width:100%;height:100%;display:block}
+.sd-stockintro .si-pts b{font-family:'Noto Serif TC',serif;font-size:19px;color:#2E2A28}
+.sd-stockintro .si-pts span{font-size:13.5px;color:#8C857C;line-height:1.7}
+.sd-stockcta{background:#FBF8F3;border-top:1px solid #ece6dd;padding:54px 0 58px;text-align:center}
+.sd-stockcta .sc-line{margin:0 0 22px;font-family:'Noto Serif TC',serif;font-size:clamp(18px,2.4vw,24px);color:#2E2A28}
+.sd-stockcta .sc-act{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.sd-stockcta .sc-act a{display:inline-block;text-decoration:none;font-weight:700;font-size:15px;
+  padding:14px 30px;border-radius:999px;transition:transform .15s}
+.sd-stockcta .sc-a1{background:#924898;color:#fff}
+.sd-stockcta .sc-a2{background:transparent;color:#4A443D;border:1px solid #d8d1c7}
+.sd-stockcta .sc-act a:hover{transform:translateY(-2px)}
+@media(max-width:760px){.sd-stockintro{padding:46px 0 42px}
+  .sd-stockintro .si-pts{grid-template-columns:1fr;gap:16px}
+  .sd-stockcta .sc-act a{flex:1 1 100%}}
+</style>
 </head>
 <body>
 <header class="nav">
@@ -33,6 +59,7 @@
   <p class="rl-en">Fangzhou — Packaging Proposal</p>
   <div class="rl-meta2"><div><small>Client</small><b>方舟啟智教養院</b></div><div><small>Scope</small><b>包裝提案</b></div><div><small>Agency</small><b>薪鼎包裝 Senior Deed</b></div></div>
 </header>
+<section class="sd-stockintro"><div class="container"><p class="si-eb">WHY STOCK PACKAGING</p><h2>公版盒型，<em>也能做出品牌的樣子。</em></h2><p class="si-lead">盒型已開好刀模，印刷與加工依品牌調整——省下開模成本與等待時間。</p><ul class="si-pts"><li><i class="si-ic" style="color:#924898"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="6" width="18.8" height="12" rx="2"/><circle cx="12" cy="12" r="2.7"/><path d="M3.6 20.4 20.4 3.6"/></svg></i><b>免開模費用</b><span>盒型與刀模已完成，不必為單一品牌重新開模，前期成本大幅降低。</span></li><li><i class="si-ic" style="color:#3A6FB0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="12" r="7.5"/><path d="M13 7.6V12l3 1.9"/><path d="M1.8 8.6h4M1.8 12h2.8M1.8 15.4h4"/></svg></i><b>交期更快</b><span>省去開模與打樣的來回，確認印刷稿後即可安排生產。</span></li><li><i class="si-ic" style="color:#2E8B74"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8 20.2 7v10L12 21.2 3.8 17V7z"/><path d="m8.4 11.9 2.6 2.6 4.6-4.9"/></svg></i><b>結構已驗證</b><span>承重、組裝與裝箱都經過量產驗證，不必承擔新盒型的試錯風險。</span></li></ul></div></section>
 <figure class="rl-hero"><img class="rl-pg" src="./old/fangzhou/01.webp?v=261127n" alt="方舟啟智教養院 01" loading="eager"></figure>
 <section class="rl-reel">
   <img class="rl-pg" src="./old/fangzhou/02.webp?v=261127n" alt="方舟啟智教養院 02" loading="lazy" decoding="async">
@@ -41,6 +68,7 @@
   <img class="rl-pg" src="./old/fangzhou/05.webp?v=261127n" alt="方舟啟智教養院 05" loading="lazy" decoding="async">
   <img class="rl-pg" src="./old/fangzhou/06.webp?v=261127n" alt="方舟啟智教養院 06" loading="lazy" decoding="async">
 </section>
+<section class="sd-stockcta" id="line"><div class="container"><p class="sc-line">客製的，是印刷、材質與加工；不變的，是已經驗證過的結構。</p><div class="sc-act"><a class="sc-a1" href="https://lin.ee/QzvYBN6" target="_blank" rel="noopener">LINE 諮詢公版客製</a><a class="sc-a2" href="../">探索公版盒型 →</a></div></div></section>
 <div class="rl-end"><a href="./"><i>←</i>回到全部作品</a></div>
 </article></main>
 
